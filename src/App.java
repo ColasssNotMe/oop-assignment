@@ -1,29 +1,22 @@
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import users.Resident;
+import view.MainMenu;
 
-public class App extends Frame {
-    // public App() {
-    // addWindowListener(new WindowAdapter() {
-    // public void windowClosing(WindowEvent e) {
-    // dispose();
-    // }
-    // });
-    // }
+public class App {
 
     public static void main(String[] args) throws Exception {
-        App f = new App();
-        f.setSize(800, 600);
-        f.setVisible(true);
-        f.setResizable(false);
-        f.addWindowListener(new WindowAdapter() {
+        MainMenu mainMenu = new MainMenu();
+
+        // enable window closing
+        mainMenu.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
-                f.dispose();
+                mainMenu.dispose();
             }
         });
-        Resident humana = new Resident(123, "pass", "name");
-
-        System.out.println(humana.uid + humana.name + humana.password);
+        Label title = new Label("Main menu", Label.CENTER);
+        Font font = new Font("Arial", Font.PLAIN, 48);
+        title.setFont(font);
+        mainMenu.add(title);
     }
 }
