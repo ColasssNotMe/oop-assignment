@@ -2,7 +2,6 @@ package view;
 
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -14,19 +13,19 @@ public class MainMenu extends BaseFrame {
         super();
         setTitle("Main Menu");
         setVisible(true);
-        setLayout(new BorderLayout());
-        setBackground(Color.blue);
+        setLayout(null);
 
         // Panel
-        Panel container = new Panel(new GridLayout(2, 1, 100, 50));
         Panel buttonPanel = new Panel(new GridLayout(2, 1, 100, 20));
-        buttonPanel.setBackground(Color.black);
+        buttonPanel.setBackground(Color.white);
+        buttonPanel.setBounds(300, 300, 200, 200);
         Panel titlePanel = new Panel(new FlowLayout());
         titlePanel.setBackground(Color.white);
+        titlePanel.setBounds(300, 100, 200, 100);
 
         // init font
         Label titleText = new Label("Main Menu");
-        Font titleFont = new Font("Arial", Font.PLAIN, 36);
+        Font titleFont = new Font("Comic Sans MS", Font.PLAIN, 36);
         Font buttonFont = new Font("Arial", Font.PLAIN, 18);
 
         // titleText settings
@@ -45,8 +44,7 @@ public class MainMenu extends BaseFrame {
         titlePanel.add(titleText);
         buttonPanel.add(loginButton);
         buttonPanel.add(registerButton);
-        container.add(titlePanel);
-        container.add(buttonPanel);
-        add(container, BorderLayout.CENTER);
+        add(titlePanel);
+        add(buttonPanel);
     }
 }
