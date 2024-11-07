@@ -14,9 +14,9 @@ public class App {
                 mainMenu.dispose();
             }
         });
-        Label title = new Label("Main menu", Label.CENTER);
-        Font font = new Font("Arial", Font.PLAIN, 48);
-        title.setFont(font);
-        mainMenu.add(title);
+        // Label title = new Label("Main menu", Label.CENTER);
+        // Font font = new Font("Arial", Font.PLAIN, 48);
+        // title.setFont(font);
+        // mainMenu.add(title);
     }
 }
