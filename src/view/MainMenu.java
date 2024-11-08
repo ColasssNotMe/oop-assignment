@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.event.ActionListener;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -23,14 +24,11 @@ public class MainMenu extends BaseFrame {
         titlePanel.setBackground(Color.white);
         titlePanel.setBounds(300, 100, 200, 100);
 
-        // init font
-        Label titleText = new Label("Main Menu");
-        Font titleFont = new Font("Comic Sans MS", Font.PLAIN, 36);
-        Font buttonFont = new Font("Arial", Font.PLAIN, 18);
-
-        // titleText settings
+        // init font and text
+        Font titleFont = new Font("Cascadia Code", Font.PLAIN, 40);
+        Font buttonFont = new Font("Comic Sans MS", Font.PLAIN, 18);
+        Label titleText = new Label("Main menu");
         titleText.setFont(titleFont);
-        titleText.setAlignment(Label.CENTER);
 
         // button init
         Button loginButton = new Button("Login");
@@ -46,5 +44,22 @@ public class MainMenu extends BaseFrame {
         buttonPanel.add(registerButton);
         add(titlePanel);
         add(buttonPanel);
+        setupButtonListeners(loginButton, registerButton);
+    };
+
+    private void setupButtonListeners(Button loginButton, Button registerButton) {
+        loginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                new Login();
+                dispose();
+            }
+        });
+
+        registerButton.addActionListener(new ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                new Register();
+                dispose();
+            }
+        });
     }
 }
