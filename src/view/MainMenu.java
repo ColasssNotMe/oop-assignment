@@ -3,6 +3,9 @@ package view;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.event.ActionListener;
+
+import util.WindowListenerImp;
+
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -45,21 +48,29 @@ public class MainMenu extends BaseFrame {
         add(titlePanel);
         add(buttonPanel);
         setupButtonListeners(loginButton, registerButton);
+
+        addWindowListener(new WindowListenerImp());
+
     };
 
     private void setupButtonListeners(Button loginButton, Button registerButton) {
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
+                // dispose();
                 new Login();
-                dispose();
+                // login.addWindowListener(new WindowListenerImp());
+
             }
         });
 
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
+                // dispose();
                 new Register();
-                dispose();
+                // register.addWindowListener(new WindowListenerImp());
+                ;
             }
         });
+
     }
 }
