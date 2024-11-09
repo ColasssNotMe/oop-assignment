@@ -34,8 +34,6 @@ public class Login extends BaseFrame {
         gbc.fill = GridBagConstraints.CENTER;
         gbc.insets = new Insets(10, 20, 10, 20);
 
-        // containerPanel.setLayout(new );
-
         Label pageTitle = new Label("Login");
         pageTitle.setAlignment(Label.CENTER);
         pageTitle.setBounds(200, -10, 400, 300);
@@ -58,6 +56,8 @@ public class Login extends BaseFrame {
         passwordTextField.setPreferredSize(new Dimension(200, 30));
         passwordTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
 
+        Button returnButton = new Button("Back");
+        returnButton.setBounds(60, 120, 100, 40);
         Button loginButton = new Button("Login");
         loginButton.setPreferredSize(new Dimension(100, 40));
 
@@ -76,9 +76,11 @@ public class Login extends BaseFrame {
         container.add(passwordTextField, gbc);
 
         gbc.gridy = 4;
+        gbc.insets = new Insets(20, 0, 20, 0);
         container.add(loginButton, gbc);
 
         add(container);
+        add(returnButton);
         add(pageTitle);
         // container.add(containerPanel, BorderLayout.CENTER);
         addWindowListener(new WindowListenerImp());
