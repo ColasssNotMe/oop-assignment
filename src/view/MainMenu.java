@@ -56,7 +56,7 @@ public class MainMenu extends BaseFrame {
     private void setupButtonListeners(Button loginButton, Button registerButton) {
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                // dispose();
+                dispose();
                 new Login();
                 // login.addWindowListener(new WindowListenerImp());
 
@@ -65,7 +65,7 @@ public class MainMenu extends BaseFrame {
 
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                // dispose();
+                dispose();
                 new Register();
                 // register.addWindowListener(new WindowListenerImp());
                 ;
