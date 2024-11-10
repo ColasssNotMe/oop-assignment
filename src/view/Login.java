@@ -1,20 +1,21 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.Desktop.Action;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import font.AllFont;
+import javafx.scene.text.Text;
 import util.WindowListenerImp;
 
 // ...existing imports...
@@ -26,9 +27,10 @@ public class Login extends BaseFrame {
         setTitle("Login");
         setVisible(true);
         setLayout(null);
+        setBackground(Color.LIGHT_GRAY);
 
         Panel container = new Panel(new GridBagLayout());
-        container.setBackground(Color.LIGHT_GRAY);
+        container.setBackground(Color.gray);
         container.setBounds(200, 200, 400, 300);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.CENTER;
@@ -84,5 +86,27 @@ public class Login extends BaseFrame {
         add(pageTitle);
         // container.add(containerPanel, BorderLayout.CENTER);
         addWindowListener(new WindowListenerImp());
+        buttonListener(returnButton, loginButton, icTextField, passwordTextField);
     }
+
+    private void buttonListener(Button returnButton, Button loginButton, TextField icTextField,
+            TextField passwordTextField) {
+        returnButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new MainMenu();
+            }
+        });
+
+        loginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("IC:" + icTextField.getText());
+                System.out.println("Password: " + passwordTextField.getText());
+            }
+        });
+
+        ;
+
+    }
+
 }
