@@ -68,8 +68,8 @@ public class Register extends BaseFrame {
 
         Button returnButton = new Button("Back");
         returnButton.setBounds(60, 120, 100, 40);
-        Button loginButton = new Button("Login");
-        loginButton.setPreferredSize(new Dimension(100, 40));
+        Button registerButton = new Button("Login");
+        registerButton.setPreferredSize(new Dimension(100, 40));
 
         // add components
         gbc.gridx = 0;
@@ -95,17 +95,18 @@ public class Register extends BaseFrame {
 
         gbc.gridy = 8;
         gbc.insets = new Insets(20, 0, 20, 0);
-        container.add(loginButton, gbc);
+        container.add(registerButton, gbc);
 
         add(container);
         add(returnButton);
         add(pageTitle);
         // container.add(containerPanel, BorderLayout.CENTER);
         addWindowListener(new WindowListenerImp());
-        buttonListener(returnButton, loginButton, icTextField, passwordTextField);
+
+        buttonListener(returnButton, registerButton, icTextField, rePasswordTextField);
     }
 
-    private void buttonListener(Button returnButton, Button loginButton, TextField icTextField,
+    private void buttonListener(Button returnButton, Button registerButton, TextField rePasswordTextField,
             TextField passwordTextField) {
         returnButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -114,14 +115,19 @@ public class Register extends BaseFrame {
             }
         });
 
-        loginButton.addActionListener(new ActionListener() {
+        registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                passwordEqual(passwordTextField, rePasswordTextField);
             }
         });
     }
 
-    private boolean passwordEqual() {
-        return true;
+    private boolean passwordEqual(TextField passworTextField, TextField rePasswordTextField) {
+        if (passworTextField.getText() != rePasswordTextField.getText()) {
+            return false;
+        } else {
+            return true;
+        }
     };
     // ...existing code...
 }
