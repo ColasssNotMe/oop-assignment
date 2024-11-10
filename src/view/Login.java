@@ -10,12 +10,10 @@ import java.awt.Insets;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.Desktop.Action;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import font.AllFont;
-import javafx.scene.text.Text;
 import util.WindowListenerImp;
 
 // ...existing imports...
@@ -31,7 +29,7 @@ public class Login extends BaseFrame {
 
         Panel container = new Panel(new GridBagLayout());
         container.setBackground(Color.gray);
-        container.setBounds(200, 200, 400, 300);
+        container.setBounds(100, 180, 600, 400);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.CENTER;
         gbc.insets = new Insets(10, 20, 10, 20);

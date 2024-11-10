@@ -28,32 +28,43 @@ public class Register extends BaseFrame {
 
         Panel container = new Panel(new GridBagLayout());
         container.setBackground(Color.gray);
-        container.setBounds(200, 200, 400, 300);
+        container.setBounds(100, 180, 600, 400);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(10, 20, 10, 20);
+        gbc.insets = new Insets(1, 1, 1, 1);
 
-        Label pageTitle = new Label("Login");
+        Label pageTitle = new Label("Register");
         pageTitle.setAlignment(Label.CENTER);
         pageTitle.setBounds(200, -10, 400, 300);
-        Label icLabel = new Label("Username");
+        Label usernameLabel = new Label("Create a new username");
+        usernameLabel.setAlignment(Label.LEFT);
+        Label icLabel = new Label("Enter IC/Passport No.");
         icLabel.setAlignment(Label.LEFT);
         Label passwordLabel = new Label("Password");
         passwordLabel.setAlignment(Label.LEFT);
+        Label rePasswordLabel = new Label("Enter password again");
+        rePasswordLabel.setAlignment(Label.LEFT);
 
         Font titleFont = AllFont.titleFont;
-        Font usernameFont = new Font("Comic Sans MS", Font.PLAIN, 24);
-        Font passwordFont = new Font("Comic Sans MS", Font.PLAIN, 24);
-        icLabel.setFont(usernameFont);
-        passwordLabel.setFont(passwordFont);
+        Font font = new Font("Comic Sans MS", Font.PLAIN, 24);
+        icLabel.setFont(font);
+        usernameLabel.setFont(font);
+        passwordLabel.setFont(font);
+        rePasswordLabel.setFont(font);
         pageTitle.setFont(titleFont);
 
         TextField icTextField = new TextField();
         icTextField.setPreferredSize(new Dimension(200, 30));
         icTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
+        TextField usernameTextField = new TextField();
+        usernameTextField.setPreferredSize(new Dimension(200, 30));
+        usernameTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
         TextField passwordTextField = new TextField();
         passwordTextField.setPreferredSize(new Dimension(200, 30));
         passwordTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
+        TextField rePasswordTextField = new TextField();
+        rePasswordTextField.setPreferredSize(new Dimension(200, 30));
+        rePasswordTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
 
         Button returnButton = new Button("Back");
         returnButton.setBounds(60, 120, 100, 40);
@@ -69,12 +80,20 @@ public class Register extends BaseFrame {
         container.add(icTextField, gbc);
 
         gbc.gridy = 2;
-        container.add(passwordLabel, gbc);
+        container.add(usernameLabel, gbc);
 
         gbc.gridy = 3;
-        container.add(passwordTextField, gbc);
-
+        container.add(usernameTextField, gbc);
         gbc.gridy = 4;
+        container.add(passwordLabel, gbc);
+        gbc.gridy = 5;
+        container.add(passwordTextField, gbc);
+        gbc.gridy = 6;
+        container.add(rePasswordLabel, gbc);
+        gbc.gridy = 7;
+        container.add(rePasswordTextField, gbc);
+
+        gbc.gridy = 8;
         gbc.insets = new Insets(20, 0, 20, 0);
         container.add(loginButton, gbc);
 
@@ -97,13 +116,12 @@ public class Register extends BaseFrame {
 
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("IC:" + icTextField.getText());
-                System.out.println("Password: " + passwordTextField.getText());
             }
         });
-
-        ;
-
     }
+
+    private boolean passwordEqual() {
+        return true;
+    };
     // ...existing code...
 }
