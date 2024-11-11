@@ -18,13 +18,14 @@ public class MainMenu extends BaseFrame {
         setTitle("Main Menu");
         setVisible(true);
         setLayout(null);
+        setBackground(Color.lightGray);
 
         // Panel
         Panel buttonPanel = new Panel(new GridLayout(2, 1, 100, 20));
-        buttonPanel.setBackground(Color.white);
+        // buttonPanel.setBackground(Color.white);
         buttonPanel.setBounds(300, 300, 200, 200);
         Panel titlePanel = new Panel(new FlowLayout());
-        titlePanel.setBackground(Color.white);
+        // titlePanel.setBackground(Color.white);
         titlePanel.setBounds(300, 100, 200, 100);
 
         // init font and text
