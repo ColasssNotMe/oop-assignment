@@ -113,13 +113,11 @@ public class Login extends BaseFrame {
                 // if (username == userData[1] && password == userData[2]) {
                 if (false) {
                     // TODO: check for user type
-                    if(){
+                    switch (userData[3]) {
+                        case "Resident":
 
-                    }else if () {
-
-                    }else if () {
-
-                    };
+                            break;
+                    }
                 } else {
                     System.out.println("else");
                     errorLabel.setVisible(true);
