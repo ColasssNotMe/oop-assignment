@@ -4,7 +4,8 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.event.ActionListener;
 
-import util.WindowListenerImp;
+import base.BaseFrame;
+import base.WindowListenerImp;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -59,7 +60,6 @@ public class MainMenu extends BaseFrame {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
                 new Login();
-                // login.addWindowListener(new WindowListenerImp());
 
             }
         });
@@ -68,8 +68,6 @@ public class MainMenu extends BaseFrame {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
                 new Register();
-                // register.addWindowListener(new WindowListenerImp());
-                ;
             }
         });
 

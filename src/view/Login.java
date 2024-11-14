@@ -13,8 +13,9 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import base.BaseFrame;
 import font.AllFont;
-import util.WindowListenerImp;
+import base.WindowListenerImp;
 
 // ...existing imports...
 
@@ -23,9 +24,7 @@ public class Login extends BaseFrame {
     public Login() {
         super();
         setTitle("Login");
-        setVisible(true);
         setLayout(null);
-        setBackground(Color.LIGHT_GRAY);
 
         Panel container = new Panel(new GridBagLayout());
         container.setBackground(Color.gray);
@@ -113,13 +112,20 @@ public class Login extends BaseFrame {
                 // if (username == userData[1] && password == userData[2]) {
                 if (false) {
                     // TODO: check for user type
-                    if(){
-
-                    }else if () {
-
-                    }else if () {
-
-                    };
+                    switch (userData[9]) {
+                        case "Resident":
+                            new ResidentView();
+                            dispose();
+                            break;
+                        case "Manager":
+                            new ManagerView();
+                            dispose();
+                            break;
+                        case "Staff":
+                            new StaffView();
+                            dispose();
+                            break;
+                    }
                 } else {
                     System.out.println("else");
                     errorLabel.setVisible(true);
