@@ -13,6 +13,7 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import base.BaseFrame;
 import font.AllFont;
 import util.WindowListenerImp;
 
@@ -22,9 +23,6 @@ public class Register extends BaseFrame {
     public Register() {
         super();
         setTitle("Login");
-        setVisible(true);
-        setLayout(null);
-        setBackground(Color.LIGHT_GRAY);
 
         Panel container = new Panel(new GridBagLayout());
         container.setBackground(Color.gray);
