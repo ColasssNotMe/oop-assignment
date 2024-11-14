@@ -60,7 +60,6 @@ public class MainMenu extends BaseFrame {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
                 new Login();
-                // login.addWindowListener(new WindowListenerImp());
 
             }
         });
@@ -69,8 +68,6 @@ public class MainMenu extends BaseFrame {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
                 new Register();
-                // register.addWindowListener(new WindowListenerImp());
-                ;
             }
         });
 
