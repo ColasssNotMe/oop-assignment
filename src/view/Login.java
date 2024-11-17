@@ -15,11 +15,15 @@ import java.awt.event.ActionListener;
 
 import base.BaseFrame;
 import font.AllFont;
+import users.Manager;
+import users.Resident;
+import users.Staff;
 import base.WindowListenerImp;
 
 // ...existing imports...
 
 public class Login extends BaseFrame {
+    Object[] userData = { 1, "name", "password", 010, 05, "male", 2, 011, "manager" };
 
     public Login() {
         super();
@@ -109,20 +113,23 @@ public class Login extends BaseFrame {
                 // userData = data.getData();
                 String username = usernameTextField.getText();
                 String password = passwordTextField.getText();
-                // if (username == userData[1] && password == userData[2]) {
-                if (false) {
+                if (username == userData[1] && password == userData[2]) {
                     // TODO: check for user type
-                    switch (userData[9]) {
-                        case "Resident":
-                            new ResidentView();
+                    switch ((String) userData[8]) {
+                        case "resident":
+                            // TODO: replace the data
+                            new ResidentView(new Resident(WIDTH, username, password, ALLBITS, password, username, ABORT,
+                                    password));
                             dispose();
                             break;
-                        case "Manager":
-                            new ManagerView();
+                        case "manager":
+                            new ManagerView(new Manager(WIDTH, username, password, ALLBITS, password, username, ABORT,
+                                    password));
                             dispose();
                             break;
-                        case "Staff":
-                            new StaffView();
+                        case "staff":
+                            new StaffView(
+                                    new Staff(WIDTH, username, password, ALLBITS, password, username, ABORT, password));
                             dispose();
                             break;
                     }

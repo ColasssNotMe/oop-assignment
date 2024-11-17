@@ -8,6 +8,7 @@ import java.awt.List;
 import java.awt.Panel;
 
 import base.UserMenu;
+import users.Resident;
 
 public class ResidentView extends UserMenu {
     static String[] test = { "Apple", "Banana", "Cherry", "Date", "Elderberry" };
@@ -17,8 +18,9 @@ public class ResidentView extends UserMenu {
     private int xPos = 10;
     private int width = 240;
     private int height = 40;
+    // private Resident resident;
 
-    public ResidentView() {
+    public ResidentView(Resident resident) {
         super("Resident");
         setTitle("Resident Menu");
         Panel roomPanel = new Panel();

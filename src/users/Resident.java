@@ -1,7 +1,8 @@
 package users;
 
 public class Resident extends User {
-    public Resident(int uid, String password, String name, String userType) {
-        super(uid, password, name, userType);
+    public Resident(int id, String name, String password, int contact, String ic, String gender, int urgentContact,
+            String role) {
+        super(id, name, password, contact, ic, gender, urgentContact, role);
     }
 }

@@ -8,6 +8,7 @@ import java.awt.List;
 import java.awt.Panel;
 
 import base.UserMenu;
+import users.Staff;
 
 public class StaffView extends UserMenu {
     String[] test = { "Te", "te" };
@@ -15,7 +16,7 @@ public class StaffView extends UserMenu {
     private int width = 240;
     private int height = 40;
 
-    public StaffView() {
+    public StaffView(Staff staff) {
         super("Staff");
         setTitle("Staff Menu");
         Panel currentlyLoginAsPanel = new Panel(null);
@@ -25,10 +26,13 @@ public class StaffView extends UserMenu {
         currentlyLoginAs.setBounds(20, 20, 200, 25);
 
         currentlyLoginAsPanel.add(currentlyLoginAs);
+        Panel statsPanel = new Panel();
+        statsPanel.setBackground(Color.gray);
+        statsPanel.setBounds(50, 230, 700, 300);
 
         // left panel
         Panel leftSelectionPanel = new Panel(null);
-        leftSelectionPanel.setBackground(Color.lightGray);
+        leftSelectionPanel.setBackground(Color.gray);
         leftSelectionPanel.setBounds(100, 260, 260, 250);
 
         Button laundryButton = new Button("Laundry Service");
@@ -59,6 +63,7 @@ public class StaffView extends UserMenu {
         add(currentlyLoginAsPanel);
         add(leftSelectionPanel);
         add(rightInfoPanel);
+        add(statsPanel);
 
         setDetailList(detailList, test);
     }

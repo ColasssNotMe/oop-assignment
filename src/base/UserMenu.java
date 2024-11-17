@@ -1,13 +1,8 @@
 package base;
 
 import java.awt.Button;
-import java.awt.Color;
-import java.awt.Event;
-import java.awt.Font;
 import java.awt.Label;
 import java.awt.List;
-import java.awt.Panel;
-import java.awt.event.ActionListener;
 
 import font.AllFont;
 

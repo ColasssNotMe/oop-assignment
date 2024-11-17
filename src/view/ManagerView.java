@@ -1,7 +1,7 @@
 package view;
 
 import base.UserMenu;
-import users.Resident;
+import users.Manager;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -16,7 +16,7 @@ public class ManagerView extends UserMenu {
     private int width = 240;
     private int height = 40;
 
-    public ManagerView() {
+    public ManagerView(Manager manager) {
         super("manager");
         setTitle("Manager Menu");
 
@@ -28,9 +28,13 @@ public class ManagerView extends UserMenu {
 
         currentlyLoginAsPanel.add(currentlyLoginAs);
 
+        Panel statsPanel = new Panel();
+        statsPanel.setBackground(Color.gray);
+        statsPanel.setBounds(50, 230, 700, 300);
+
         // left panel
         Panel leftSelectionPanel = new Panel(null);
-        leftSelectionPanel.setBackground(Color.lightGray);
+        leftSelectionPanel.setBackground(Color.gray);
         leftSelectionPanel.setBounds(100, 260, 260, 250);
 
         Button laundryButton = new Button("Laundry Service");
@@ -61,6 +65,7 @@ public class ManagerView extends UserMenu {
         add(currentlyLoginAsPanel);
         add(leftSelectionPanel);
         add(rightInfoPanel);
+        add(statsPanel);
 
         setDetailList(detailList, test);
     }
