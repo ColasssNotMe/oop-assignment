@@ -160,10 +160,10 @@ public class Register extends BaseFrame {
         gbc.insets = new Insets(20, 0, 20, 0);
         secondPagePanel.add(registerButton2, gbc);
 
+        add(secondPagePanel);
         add(container);
         add(returnButton);
         add(pageTitle);
-        // add(secondPagePanel);
         addWindowListener(new WindowListenerImp());
 
         returnButton.addActionListener(new ActionListener() {
@@ -174,24 +174,31 @@ public class Register extends BaseFrame {
         });
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField);
-                add(secondPagePanel);
-                container.setVisible(false);
+                if (validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField, true)) {
+                    container.setVisible(false);
+                    secondPagePanel.setVisible(true);
+                    revalidate();
+                    repaint();
+                }
             }
         });
     }
 
-    private String validation(TextField ic, TextField username, TextField password, TextField rePassword) {
+    private boolean validation(TextField ic, TextField username, TextField password, TextField rePassword,
+            Boolean testing) {
+        if (testing == true) {
+            return true;
+        }
         if (ic.getText().length() != 12) {
-            return ("The length of ic is not 12");
+            return false;
         }
         // TODO: check if the username is available
         // if (username == data) {
         // }
         if (password.getText() != rePassword.getText()) {
-            return ("Password are not the same");
+            return false;
         }
-        return "nothing";
+        return true;
     }
 
 }
