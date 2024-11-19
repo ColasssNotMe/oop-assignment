@@ -17,8 +17,8 @@ public class MainMenu extends BaseFrame {
     public MainMenu() {
         super();
         setTitle("Main Menu");
-        setVisible(true);
         setLayout(null);
+        setVisible(true);
         setBackground(Color.lightGray);
 
         // Panel
@@ -53,14 +53,15 @@ public class MainMenu extends BaseFrame {
 
         addWindowListener(new WindowListenerImp());
 
-    };
+        setLocation(500, 250);
+        setVisible(true);
+    }
 
     private void setupButtonListeners(Button loginButton, Button registerButton) {
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
                 new Login();
-
             }
         });
 
@@ -70,6 +71,5 @@ public class MainMenu extends BaseFrame {
                 new Register();
             }
         });
-
     }
 }

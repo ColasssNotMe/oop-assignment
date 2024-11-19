@@ -13,9 +13,7 @@ public class BaseFrame extends Frame {
         setLayout(null);
         setLocation(500, 250);
 
-        // ...additional common setup...
         addWindowListener(new WindowListenerImp());
 
     }
-    // ...existing code...
 }

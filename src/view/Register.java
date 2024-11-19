@@ -17,13 +17,12 @@ import base.BaseFrame;
 import font.AllFont;
 import base.WindowListenerImp;
 
-// ...existing imports...
-
 public class Register extends BaseFrame {
     public Register() {
         super();
         setTitle("Login");
 
+        // First page
         Panel container = new Panel(new GridBagLayout());
         container.setBackground(Color.gray);
         container.setBounds(100, 180, 600, 400);
@@ -66,7 +65,7 @@ public class Register extends BaseFrame {
 
         Button returnButton = new Button("Back");
         returnButton.setBounds(60, 120, 100, 40);
-        Button registerButton = new Button("Login");
+        Button registerButton = new Button("Register");
         registerButton.setPreferredSize(new Dimension(100, 40));
 
         // add components
@@ -95,37 +94,104 @@ public class Register extends BaseFrame {
         gbc.insets = new Insets(20, 0, 20, 0);
         container.add(registerButton, gbc);
 
+        Panel secondPagePanel = new Panel(new GridBagLayout());
+        container.setBackground(Color.gray);
+        container.setBounds(100, 180, 600, 400);
+        gbc.fill = GridBagConstraints.CENTER;
+        gbc.insets = new Insets(1, 1, 1, 1);
+
+        Label pageTitle2 = new Label("Register");
+        pageTitle2.setBounds(200, -10, 400, 300);
+        Label nationalityLabel = new Label("Are you Malaysian?");
+        Label contactLabel = new Label("Enter your contact number");
+        Label genderLabel = new Label("Gender");
+        Label urgentContact = new Label("Enter an emergency contact number");
+
+        contactLabel.setFont(font);
+        nationalityLabel.setFont(font);
+        genderLabel.setFont(font);
+        urgentContact.setFont(font);
+        pageTitle2.setFont(titleFont);
+
+        // TODO: remove redundancy in font
+
+        Font textFieldFont = new Font("Courier New", Font.PLAIN, 20);
+        TextField contactTextField = new TextField();
+        contactTextField.setPreferredSize(new Dimension(200, 30));
+        contactTextField.setFont(textFieldFont);
+        TextField genderTextField = new TextField();
+        genderTextField.setPreferredSize(new Dimension(200, 30));
+        genderTextField.setFont(textFieldFont);
+        TextField urgenTextField = new TextField();
+        urgenTextField.setPreferredSize(new Dimension(200, 30));
+        urgenTextField.setFont(textFieldFont);
+        TextField nationalityTextField = new TextField();
+        nationalityTextField.setPreferredSize(new Dimension(200, 30));
+        nationalityTextField.setFont(textFieldFont);
+
+        Button returnButton2 = new Button("Back");
+        returnButton2.setBounds(60, 120, 100, 40);
+        Button registerButton2 = new Button("Register");
+        registerButton2.setPreferredSize(new Dimension(100, 40));
+
+        // add components
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        secondPagePanel.add(contactLabel, gbc);
+
+        gbc.gridy = 1;
+        secondPagePanel.add(contactTextField, gbc);
+
+        gbc.gridy = 2;
+        secondPagePanel.add(urgentContact, gbc);
+
+        gbc.gridy = 3;
+        secondPagePanel.add(urgenTextField, gbc);
+        gbc.gridy = 4;
+        secondPagePanel.add(genderLabel, gbc);
+        gbc.gridy = 5;
+        secondPagePanel.add(genderTextField, gbc);
+        gbc.gridy = 6;
+        secondPagePanel.add(nationalityLabel, gbc);
+        gbc.gridy = 7;
+        secondPagePanel.add(nationalityTextField, gbc);
+
+        gbc.gridy = 8;
+        gbc.insets = new Insets(20, 0, 20, 0);
+        secondPagePanel.add(registerButton2, gbc);
+
         add(container);
         add(returnButton);
         add(pageTitle);
-        // container.add(containerPanel, BorderLayout.CENTER);
+        // add(secondPagePanel);
         addWindowListener(new WindowListenerImp());
 
-        buttonListener(returnButton, registerButton, icTextField, rePasswordTextField);
-    }
-
-    private void buttonListener(Button returnButton, Button registerButton, TextField rePasswordTextField,
-            TextField passwordTextField) {
         returnButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 new MainMenu();
             }
         });
-
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                passwordEqual(passwordTextField, rePasswordTextField);
+                validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField);
+                add(secondPagePanel);
+                container.setVisible(false);
             }
         });
     }
 
-    private boolean passwordEqual(TextField passworTextField, TextField rePasswordTextField) {
-        if (passworTextField.getText() != rePasswordTextField.getText()) {
-            return false;
-        } else {
-            return true;
+    private String validation(TextField ic, TextField username, TextField password, TextField rePassword) {
+        if (ic.getText().length() != 12) {
+            return ("The length of ic is not 12");
         }
-    };
-    // ...existing code...
+        // TODO: check if the username is available
+        // if (username == data) {
+        // }
+        if (password.getText() != rePassword.getText()) {
+            return ("Password are not the same");
+        }
+        return "nothing";
+    }
+
 }
