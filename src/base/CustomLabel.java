@@ -1,4 +1,4 @@
-package util;
+package base;
 
 import java.awt.Graphics;
 import java.awt.Canvas;

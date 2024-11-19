@@ -11,9 +11,9 @@ public class BaseFrame extends Frame {
         setVisible(true);
         setBackground(Color.lightGray);
         setLayout(null);
-        // ...additional common setup...
+        setLocation(500, 250);
+
         addWindowListener(new WindowListenerImp());
 
     }
-    // ...existing code...
 }
