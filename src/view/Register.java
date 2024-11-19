@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Button;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -20,7 +21,10 @@ import base.WindowListenerImp;
 public class Register extends BaseFrame {
     public Register() {
         super();
-        setTitle("Login");
+        setTitle("Register");
+
+        // CardLayout cardLayout = new CardLayout();
+        // Panel mainPanel = new Panel(cardLayout);
 
         // First page
         Panel container = new Panel(new GridBagLayout());
@@ -65,8 +69,8 @@ public class Register extends BaseFrame {
 
         Button returnButton = new Button("Back");
         returnButton.setBounds(60, 120, 100, 40);
-        Button registerButton = new Button("Register");
-        registerButton.setPreferredSize(new Dimension(100, 40));
+        Button nextButton = new Button("Next Page");
+        nextButton.setPreferredSize(new Dimension(100, 40));
 
         // add components
         gbc.gridx = 0;
@@ -92,11 +96,11 @@ public class Register extends BaseFrame {
 
         gbc.gridy = 8;
         gbc.insets = new Insets(20, 0, 20, 0);
-        container.add(registerButton, gbc);
+        container.add(nextButton, gbc);
 
         Panel secondPagePanel = new Panel(new GridBagLayout());
-        container.setBackground(Color.gray);
-        container.setBounds(100, 180, 600, 400);
+        secondPagePanel.setBackground(Color.gray);
+        secondPagePanel.setBounds(100, 180, 600, 400);
         gbc.fill = GridBagConstraints.CENTER;
         gbc.insets = new Insets(1, 1, 1, 1);
 
@@ -129,10 +133,10 @@ public class Register extends BaseFrame {
         nationalityTextField.setPreferredSize(new Dimension(200, 30));
         nationalityTextField.setFont(textFieldFont);
 
-        Button returnButton2 = new Button("Back");
-        returnButton2.setBounds(60, 120, 100, 40);
-        Button registerButton2 = new Button("Register");
-        registerButton2.setPreferredSize(new Dimension(100, 40));
+        // Button returnButton = new Button("Back");
+        // returnButton.setBounds(60, 120, 100, 40);
+        Button registerButton = new Button("Register");
+        registerButton.setPreferredSize(new Dimension(100, 40));
 
         // add components
         gbc.gridx = 0;
@@ -158,10 +162,13 @@ public class Register extends BaseFrame {
 
         gbc.gridy = 8;
         gbc.insets = new Insets(20, 0, 20, 0);
-        secondPagePanel.add(registerButton2, gbc);
+        secondPagePanel.add(registerButton, gbc);
 
-        add(secondPagePanel);
+        // mainPanel.add(container, "First Page");
+        // mainPanel.add(secondPagePanel, "Second Page");
+        // add(mainPanel);
         add(container);
+        add(secondPagePanel);
         add(returnButton);
         add(pageTitle);
         addWindowListener(new WindowListenerImp());
@@ -176,11 +183,15 @@ public class Register extends BaseFrame {
             public void actionPerformed(ActionEvent e) {
                 if (validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField, true)) {
                     container.setVisible(false);
-                    secondPagePanel.setVisible(true);
-                    revalidate();
-                    repaint();
+
                 }
             }
+        });
+        nextButton.addActionListener(e -> {
+            if (validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField, true)) {
+                container.setVisible(false);
+            }
+            ;
         });
     }
 
