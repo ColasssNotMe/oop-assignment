@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Button;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -195,6 +194,7 @@ public class Register extends BaseFrame {
         });
     }
 
+    // FIXME: remove testing
     private boolean validation(TextField ic, TextField username, TextField password, TextField rePassword,
             Boolean testing) {
         if (testing == true) {
