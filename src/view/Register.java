@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Button;
+import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -102,7 +103,7 @@ public class Register extends BaseFrame {
 
         Panel secondPagePanel = new Panel(new GridBagLayout());
         secondPagePanel.setBackground(Color.gray);
-        secondPagePanel.setBounds(100, 180, 600, 400);
+        secondPagePanel.setBounds(100, 100, 600, 400);
         gbc.fill = GridBagConstraints.CENTER;
         gbc.insets = new Insets(1, 1, 1, 1);
 
@@ -125,9 +126,9 @@ public class Register extends BaseFrame {
         TextField contactTextField = new TextField();
         contactTextField.setPreferredSize(new Dimension(200, 30));
         contactTextField.setFont(textFieldFont);
-        TextField genderTextField = new TextField();
-        genderTextField.setPreferredSize(new Dimension(200, 30));
-        genderTextField.setFont(textFieldFont);
+        Choice genderChoice = new Choice();
+        genderChoice.setPreferredSize(new Dimension(200, 30));
+        genderChoice.setFont(textFieldFont);
         TextField urgenTextField = new TextField();
         urgenTextField.setPreferredSize(new Dimension(200, 30));
         urgenTextField.setFont(textFieldFont);
@@ -137,6 +138,8 @@ public class Register extends BaseFrame {
 
         // Button returnButton = new Button("Back");
         // returnButton.setBounds(60, 120, 100, 40);
+        Button prevButton = new Button("Previous");
+        prevButton.setPreferredSize(new Dimension(100, 40));
         Button registerButton = new Button("Register");
         registerButton.setPreferredSize(new Dimension(100, 40));
 
@@ -156,15 +159,20 @@ public class Register extends BaseFrame {
         gbc.gridy = 4;
         secondPagePanel.add(genderLabel, gbc);
         gbc.gridy = 5;
-        secondPagePanel.add(genderTextField, gbc);
+        secondPagePanel.add(genderChoice, gbc);
         gbc.gridy = 6;
         secondPagePanel.add(nationalityLabel, gbc);
         gbc.gridy = 7;
         secondPagePanel.add(nationalityTextField, gbc);
 
         gbc.gridy = 8;
+        gbc.gridx = 0;
         gbc.insets = new Insets(20, 0, 20, 0);
+        secondPagePanel.add(prevButton, gbc);
+        gbc.gridx = 1;
         secondPagePanel.add(registerButton, gbc);
+
+        // gbc.gridy = 9;
 
         // mainPanel.add(container, "First Page");
         // mainPanel.add(secondPagePanel, "Second Page");
@@ -183,22 +191,21 @@ public class Register extends BaseFrame {
         });
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField, true)) {
-                    container.setVisible(false);
-
+                if (validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField, contactTextField,
+                        urgenTextField, genderChoice, nationalityTextField, true)) {
                 }
             }
         });
-        nextButton.addActionListener(e -> {
-            if (validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField, true)) {
-                container.setVisible(false);
-            }
-            ;
+        prevButton.addActionListener(e -> {
         });
-    }
+        nextButton.addActionListener(e -> {
+            container.setVisible(false);
+        });
+    };
 
     // FIXME: remove testing
     private boolean validation(TextField ic, TextField username, TextField password, TextField rePassword,
+            TextField contactNumber, TextField emergencyContact, Choice gender, TextField boolMalaysian,
             Boolean testing) {
         if (testing == true) {
             return true;
@@ -206,13 +213,19 @@ public class Register extends BaseFrame {
         if (ic.getText().length() != 12) {
             return false;
         }
-        // TODO: check if the username is available
-        // if (username == data) {
-        // }
         if (password.getText() != rePassword.getText()) {
             return false;
         }
-        return true;
+        if (contactNumber.getText() == "") {
+            return false;
+        }
+        if (emergencyContact.getText() == "") {
+            return false;
+        }
+        // TODO: check if the username is available
+        // if (username == data) {
+        // }
+        return testing;
     }
 
 }

@@ -103,7 +103,7 @@ public class Login extends BaseFrame {
             TextField passwordTextField, Label errorLabel, JFrame root) {
         returnButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                root.dispose();
                 new MainMenu();
             }
         });
@@ -128,12 +128,12 @@ public class Login extends BaseFrame {
                         case "manager":
                             new ManagerView(new Manager(WIDTH, username, password, ALLBITS, password, username, ABORT,
                                     password));
-                            dispose();
+                            root.dispose();
                             break;
                         case "staff":
                             new StaffView(
                                     new Staff(WIDTH, username, password, ALLBITS, password, username, ABORT, password));
-                            dispose();
+                            root.dispose();
                             break;
                     }
                 } else {
