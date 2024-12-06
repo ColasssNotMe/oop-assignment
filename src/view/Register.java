@@ -13,6 +13,8 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+
 import base.BaseFrame;
 import font.AllFont;
 import base.WindowListenerImp;
@@ -20,6 +22,7 @@ import base.WindowListenerImp;
 public class Register extends BaseFrame {
     public Register() {
         super();
+        JFrame root = getRoot();
         setTitle("Register");
 
         // CardLayout cardLayout = new CardLayout();
@@ -28,14 +31,14 @@ public class Register extends BaseFrame {
         // First page
         Panel container = new Panel(new GridBagLayout());
         container.setBackground(Color.gray);
-        container.setBounds(100, 180, 600, 400);
+        container.setBounds(100, 100, 600, 400);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.CENTER;
         gbc.insets = new Insets(1, 1, 1, 1);
 
         Label pageTitle = new Label("Register");
         pageTitle.setAlignment(Label.CENTER);
-        pageTitle.setBounds(200, -10, 400, 300);
+        pageTitle.setBounds(200, -100, 400, 300);
         Label usernameLabel = new Label("Create a new username");
         usernameLabel.setAlignment(Label.LEFT);
         Label icLabel = new Label("Enter IC/Passport No.");
@@ -67,7 +70,7 @@ public class Register extends BaseFrame {
         rePasswordTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
 
         Button returnButton = new Button("Back");
-        returnButton.setBounds(60, 120, 100, 40);
+        returnButton.setBounds(60, 30, 100, 40);
         Button nextButton = new Button("Next Page");
         nextButton.setPreferredSize(new Dimension(100, 40));
 
@@ -166,15 +169,15 @@ public class Register extends BaseFrame {
         // mainPanel.add(container, "First Page");
         // mainPanel.add(secondPagePanel, "Second Page");
         // add(mainPanel);
-        add(container);
-        add(secondPagePanel);
-        add(returnButton);
-        add(pageTitle);
+        root.add(container);
+        root.add(secondPagePanel);
+        root.add(returnButton);
+        root.add(pageTitle);
         addWindowListener(new WindowListenerImp());
 
         returnButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                root.dispose();
                 new MainMenu();
             }
         });

@@ -7,6 +7,8 @@ import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
 
+import javax.swing.JFrame;
+
 import base.UserMenu;
 import users.Resident;
 
@@ -22,6 +24,7 @@ public class ResidentView extends UserMenu {
 
     public ResidentView(Resident resident) {
         super("Resident");
+        JFrame root = getRoot();
         setTitle("Resident Menu");
         Panel roomPanel = new Panel();
         roomPanel.setLayout(null);
@@ -95,11 +98,11 @@ public class ResidentView extends UserMenu {
         setDetailList(detailList, test);
         rightInfoPanel.add(detailList);
 
-        add(roomPanel);
-        add(paymentPanel);
-        add(leftSelectionPanel);
-        add(rightInfoPanel);
-        add(statsPanel);
+        root.add(roomPanel);
+        root.add(paymentPanel);
+        root.add(leftSelectionPanel);
+        root.add(rightInfoPanel);
+        root.add(statsPanel);
 
         laundryButtonListener(laundryButton, detailList, test);
         overDueButtonListener(overDueButton, detailList, test2);

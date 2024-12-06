@@ -4,11 +4,12 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+
 import base.BaseFrame;
 import base.WindowListenerImp;
 
 import java.awt.Button;
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -16,17 +17,16 @@ import java.awt.GridLayout;
 public class MainMenu extends BaseFrame {
     public MainMenu() {
         super();
-        setTitle("Main Menu");
-        setLayout(null);
-        setVisible(true);
-        setBackground(Color.lightGray);
+        JFrame root = getRoot();
+        root.setTitle("Main menu");
+        // setLayout(null);
+        // setVisible(true);
+        // setBackground(Color.lightGray);
 
         // Panel
         Panel buttonPanel = new Panel(new GridLayout(2, 1, 100, 20));
-        // buttonPanel.setBackground(Color.white);
-        buttonPanel.setBounds(300, 300, 200, 200);
+        buttonPanel.setBounds(300, 200, 200, 200);
         Panel titlePanel = new Panel(new FlowLayout());
-        // titlePanel.setBackground(Color.white);
         titlePanel.setBounds(300, 100, 200, 100);
 
         // init font and text
@@ -47,27 +47,27 @@ public class MainMenu extends BaseFrame {
         titlePanel.add(titleText);
         buttonPanel.add(loginButton);
         buttonPanel.add(registerButton);
-        add(titlePanel);
-        add(buttonPanel);
-        setupButtonListeners(loginButton, registerButton);
+        root.add(titlePanel);
+        root.add(buttonPanel);
+        setupButtonListeners(loginButton, registerButton, root);
 
-        addWindowListener(new WindowListenerImp());
+        root.addWindowListener(new WindowListenerImp());
 
-        setLocation(500, 250);
-        setVisible(true);
+        root.setLocation(500, 250);
+        root.setVisible(true);
     }
 
-    private void setupButtonListeners(Button loginButton, Button registerButton) {
+    private void setupButtonListeners(Button loginButton, Button registerButton, JFrame root) {
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                dispose();
+                root.dispose();
                 new Login();
             }
         });
 
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                dispose();
+                root.dispose();
                 new Register();
             }
         });

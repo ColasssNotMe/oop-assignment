@@ -13,6 +13,8 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+
 import base.BaseFrame;
 import font.AllFont;
 import users.Manager;
@@ -27,19 +29,20 @@ public class Login extends BaseFrame {
 
     public Login() {
         super();
-        setTitle("Login");
-        setLayout(null);
+        JFrame root = getRoot();
+        root.setTitle("Login");
+        root.setLayout(null);
 
         Panel container = new Panel(new GridBagLayout());
         container.setBackground(Color.gray);
-        container.setBounds(100, 180, 600, 400);
+        container.setBounds(100, 100, 600, 400);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.CENTER;
         gbc.insets = new Insets(5, 1, 5, 1);
 
         Label pageTitle = new Label("Login");
         pageTitle.setAlignment(Label.CENTER);
-        pageTitle.setBounds(200, -10, 400, 300);
+        pageTitle.setBounds(200, -100, 400, 300);
         Label usernameLabel = new Label("Username");
         usernameLabel.setAlignment(Label.LEFT);
         Label passwordLabel = new Label("Password");
@@ -62,7 +65,7 @@ public class Login extends BaseFrame {
         passwordTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
 
         Button returnButton = new Button("Back");
-        returnButton.setBounds(60, 120, 100, 40);
+        returnButton.setBounds(60, 30, 100, 40);
         Button loginButton = new Button("Login");
         loginButton.setPreferredSize(new Dimension(100, 40));
 
@@ -88,16 +91,16 @@ public class Login extends BaseFrame {
         gbc.insets = new Insets(10, 20, 10, 20);
         container.add(errorLabel, gbc);
 
-        add(container);
-        add(returnButton);
-        add(pageTitle);
+        root.add(container);
+        root.add(returnButton);
+        root.add(pageTitle);
         // container.add(containerPanel, BorderLayout.CENTER);
         addWindowListener(new WindowListenerImp());
-        buttonListener(returnButton, loginButton, usernameTextField, passwordTextField, errorLabel);
+        buttonListener(returnButton, loginButton, usernameTextField, passwordTextField, errorLabel, root);
     }
-
+    
     private void buttonListener(Button returnButton, Button loginButton, TextField usernameTextField,
-            TextField passwordTextField, Label errorLabel) {
+            TextField passwordTextField, Label errorLabel, JFrame root) {
         returnButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -120,7 +123,7 @@ public class Login extends BaseFrame {
                             // TODO: replace the data
                             new ResidentView(new Resident(WIDTH, username, password, ALLBITS, password, username, ABORT,
                                     password));
-                            dispose();
+                            root.dispose();
                             break;
                         case "manager":
                             new ManagerView(new Manager(WIDTH, username, password, ALLBITS, password, username, ABORT,

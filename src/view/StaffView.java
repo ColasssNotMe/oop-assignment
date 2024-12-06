@@ -2,16 +2,14 @@ package view;
 
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Dialog;
 import java.awt.Font;
 import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
-import java.awt.TextField;
-import java.awt.event.WindowAdapter;
-
 import base.UserMenu;
-import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import users.Staff;
 
 public class StaffView extends UserMenu {
@@ -24,6 +22,7 @@ public class StaffView extends UserMenu {
 
     public StaffView(Staff staff) {
         super("Staff");
+        JFrame root = getRoot();
         setTitle("Staff Menu");
         Panel currentlyLoginAsPanel = new Panel(null);
         currentlyLoginAsPanel.setBounds(50, 100, 300, 100);
@@ -53,9 +52,6 @@ public class StaffView extends UserMenu {
         Button generateReceiptButton = new Button("Generate Receipt");
         generateReceiptButton.setBounds(10, 120, width, height);
         leftSelectionPanel.add(generateReceiptButton);
-        // Button totalButton = new Button("Total");
-        // totalButton.setBounds(0, 200, 260, 40);
-        // leftSelectionPanel.add(totalButton);
 
         // right panel
         Panel rightInfoPanel = new Panel(null);
@@ -66,11 +62,10 @@ public class StaffView extends UserMenu {
         // add item 1 by 1 into list
         rightInfoPanel.add(detailList);
 
-        add(currentlyLoginAsPanel);
-        add(leftSelectionPanel);
-        add(rightInfoPanel);
-        add(statsPanel);
-
+        root.add(currentlyLoginAsPanel);
+        root.add(leftSelectionPanel);
+        root.add(rightInfoPanel);
+        root.add(statsPanel);
         setDetailList(detailList, test);
 
         // add button listener
@@ -83,53 +78,11 @@ public class StaffView extends UserMenu {
     }
 
     private void createRegisterDialog() {
-        Dialog registerUserDialog = new Dialog(this, "Register User", true);
-        registerUserDialog.setSize(300, 220);
-        registerUserDialog.setLayout(null);
-        registerUserDialog.setLocationRelativeTo(this);
-        registerUserDialog.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                registerUserDialog.setVisible(false);
-            }
-        });
-        Label dialogLabel = new Label("Register New User");
-        dialogLabel.setBounds(100, 50, 150, 20);
-        registerUserDialog.add(dialogLabel);
-
-        Label usernameLabel = new Label("Username");
-        usernameLabel.setBounds(70, 80, 150, 20);
-        registerUserDialog.add(usernameLabel);
-
-        TextField usernameTextField = new TextField();
-        usernameTextField.setBounds(70, 100, 150, 20);
-        registerUserDialog.add(usernameTextField);
-
-        Label passwordLabel = new Label("Password");
-        passwordLabel.setBounds(70, 120, 150, 20);
-        registerUserDialog.add(passwordLabel);
-
-        TextField passwordTextField = new TextField();
-        passwordTextField.setBounds(70, 140, 150, 20);
-        registerUserDialog.add(passwordTextField);
-
-        Button registerButton = new Button("Register User");
-        registerButton.setBounds(100, 170, 100, 30);
-        registerUserDialog.add(registerButton);
-
-        registerButton.addActionListener((e) -> {
-            if (!usernameTextField.getText().isEmpty() && !passwordTextField.getText().isEmpty()) {
-                username = usernameTextField.getText();
-                password = passwordTextField.getText();
-                try {
-                    registerUserDialog.dispose();
-                } catch (Exception ex) {
-                    System.out.println(ex);
-                }
-            }
-        });
-
-        registerUserDialog.setVisible(true);
+        String newUsername = JOptionPane.showInputDialog("Enter username:");
+        if (newUsername == null) {
+            // JOptionPane.showMessageDialog(UserMenu.root,"Username cannot be empty");
+        }
+        String newPassword = JOptionPane.showInputDialog("Enter new password");
     }
 
 }

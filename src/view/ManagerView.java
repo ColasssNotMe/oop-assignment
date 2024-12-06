@@ -10,6 +10,8 @@ import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
 
+import javax.swing.JFrame;
+
 public class ManagerView extends UserMenu {
     String[] test = { "Te", "te" };
 
@@ -18,6 +20,7 @@ public class ManagerView extends UserMenu {
 
     public ManagerView(Manager manager) {
         super("manager");
+        JFrame root = getRoot();
         setTitle("Manager Menu");
 
         Panel currentlyLoginAsPanel = new Panel(null);
@@ -62,10 +65,10 @@ public class ManagerView extends UserMenu {
         // add item 1 by 1 into list
         rightInfoPanel.add(detailList);
 
-        add(currentlyLoginAsPanel);
-        add(leftSelectionPanel);
-        add(rightInfoPanel);
-        add(statsPanel);
+        root.add(currentlyLoginAsPanel);
+        root.add(leftSelectionPanel);
+        root.add(rightInfoPanel);
+        root.add(statsPanel);
 
         setDetailList(detailList, test);
     }

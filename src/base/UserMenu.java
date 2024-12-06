@@ -4,6 +4,8 @@ import java.awt.Button;
 import java.awt.Label;
 import java.awt.List;
 
+import javax.swing.JFrame;
+
 import font.AllFont;
 
 public class UserMenu extends BaseFrame {
@@ -11,11 +13,8 @@ public class UserMenu extends BaseFrame {
     String dueString = Double.toString(duePayment);
 
     public UserMenu(String username) {
-        // if (extraInfo != null) {
-        // return;
-        // }
         setLayout(null);
-
+        JFrame root = getRoot();
         // Username display
         Label usernameLabel = new Label("Welcome, " + username);
         usernameLabel.setFont(AllFont.titleFont);
@@ -28,9 +27,9 @@ public class UserMenu extends BaseFrame {
         Button editProfileButton = new Button("Edit Profile");
         editProfileButton.setBounds(540, 50, 100, 40);
 
-        add(usernameLabel);
-        add(logoutButton);
-        add(editProfileButton);
+        root.add(usernameLabel);
+        root.add(logoutButton);
+        root.add(editProfileButton);
     }
 
     public void setDetailList(List root, String[] dataList) {
