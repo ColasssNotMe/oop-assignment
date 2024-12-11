@@ -5,8 +5,10 @@ import java.awt.Label;
 import java.awt.List;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import font.AllFont;
+import view.MainMenu;
 
 public class UserMenu extends BaseFrame {
     double duePayment;
@@ -30,6 +32,14 @@ public class UserMenu extends BaseFrame {
         root.add(usernameLabel);
         root.add(logoutButton);
         root.add(editProfileButton);
+
+        logoutButton.addActionListener(e -> {
+            int confirmationDialog = JOptionPane.showConfirmDialog(root, "Logout?");
+            if (confirmationDialog == 0) {
+                root.dispose();
+                new MainMenu();
+            }
+        });
     }
 
     public void setDetailList(List root, String[] dataList) {

@@ -41,8 +41,8 @@ public class Login extends BaseFrame {
         Label pageTitle = new Label("Login");
         pageTitle.setAlignment(Label.CENTER);
         pageTitle.setBounds(200, -100, 400, 300);
-        Label usernameLabel = new Label("Username");
-        usernameLabel.setAlignment(Label.LEFT);
+        Label icLabel = new Label("IC");
+        icLabel.setAlignment(Label.LEFT);
         Label passwordLabel = new Label("Password");
         passwordLabel.setAlignment(Label.LEFT);
         Label errorLabel = new Label("Password does not match");
@@ -50,14 +50,14 @@ public class Login extends BaseFrame {
 
         Font titleFont = AllFont.titleFont;
         Font font = new Font("Comic Sans MS", Font.PLAIN, 24);
-        usernameLabel.setFont(font);
+        icLabel.setFont(font);
         passwordLabel.setFont(font);
         pageTitle.setFont(titleFont);
         errorLabel.setFont(font);
 
-        TextField usernameTextField = new TextField();
-        usernameTextField.setPreferredSize(new Dimension(200, 30));
-        usernameTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
+        TextField icTextField = new TextField();
+        icTextField.setPreferredSize(new Dimension(200, 30));
+        icTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
         TextField passwordTextField = new TextField();
         passwordTextField.setPreferredSize(new Dimension(200, 30));
         passwordTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
@@ -70,10 +70,10 @@ public class Login extends BaseFrame {
         // add components
         gbc.gridx = 0;
         gbc.gridy = 0;
-        container.add(usernameLabel, gbc);
+        container.add(icLabel, gbc);
 
         gbc.gridy = 1;
-        container.add(usernameTextField, gbc);
+        container.add(icTextField, gbc);
 
         gbc.gridy = 2;
         container.add(passwordLabel, gbc);
@@ -94,10 +94,10 @@ public class Login extends BaseFrame {
         root.add(pageTitle);
         // container.add(containerPanel, BorderLayout.CENTER);
         addWindowListener(new WindowListenerImp());
-        buttonListener(returnButton, loginButton, usernameTextField, passwordTextField, errorLabel, root);
+        buttonListener(returnButton, loginButton, icTextField, passwordTextField, errorLabel, root);
     }
 
-    private void buttonListener(Button returnButton, Button loginButton, TextField usernameTextField,
+    private void buttonListener(Button returnButton, Button loginButton, TextField icTextField,
             TextField passwordTextField, Label errorLabel, JFrame root) {
         returnButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -112,7 +112,7 @@ public class Login extends BaseFrame {
             public void actionPerformed(ActionEvent e) {
                 // String[] data = new Data();
                 // userData = data.getData();
-                String username = usernameTextField.getText();
+                String username = icTextField.getText();
                 String password = passwordTextField.getText();
                 if (username == userData[1] && password == userData[2]) {
                     // TODO: check for user type
