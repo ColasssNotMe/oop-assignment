@@ -68,8 +68,9 @@ public class ManagerView extends UserMenu {
 
         detailList.addActionListener(e -> {
             int selectedItem = detailList.getSelectedIndex();
-            User selectedCustomerName = detailList.getItem(selectedItem);
-            new ResidentDetailDialog(12, selectedCustomerName);
+            // User selectedCustomerName = detailList.getItem(selectedItem);
+            new ResidentDetailDialog(12, new User(selectedItem, getName(), getName(), selectedItem, getTitle(),
+                    getWarningString(), selectedItem, getName()));
         });
     }
 
