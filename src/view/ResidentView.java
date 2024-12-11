@@ -72,17 +72,11 @@ public class ResidentView extends UserMenu {
         leftSelectionPanel.setBackground(Color.gray);
         leftSelectionPanel.setBounds(100, 260, 260, 250);
 
-        Button laundryButton = new Button("Laundry Service");
-        laundryButton.setBounds(xPos, 0, width, height);
-        leftSelectionPanel.add(laundryButton);
         Button overDueButton = new Button("Overdue Payment");
-        overDueButton.setBounds(xPos, 40, width, height);
+        overDueButton.setBounds(10, 0, width, height);
         leftSelectionPanel.add(overDueButton);
-        Button transportButton = new Button("Transport timetable");
-        transportButton.setBounds(xPos, 80, width, height);
-        leftSelectionPanel.add(transportButton);
         Button roomInfoButton = new Button("Room detail");
-        roomInfoButton.setBounds(xPos, 120, width, height);
+        roomInfoButton.setBounds(10, 40, width, height);
         leftSelectionPanel.add(roomInfoButton);
         Button totalButton = new Button("Total");
         totalButton.setBounds(0, 200, 260, 40);
@@ -104,9 +98,7 @@ public class ResidentView extends UserMenu {
         root.add(rightInfoPanel);
         root.add(statsPanel);
 
-        laundryButtonListener(laundryButton, detailList, test);
         overDueButtonListener(overDueButton, detailList, test2);
-        transportButtonListener(transportButton, detailList, test3);
         roomInfoButtonListener(roomInfoButton, detailList, test2);
         totalButtonListener(totalButton, detailList, test);
     };

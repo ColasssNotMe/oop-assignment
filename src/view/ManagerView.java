@@ -40,17 +40,11 @@ public class ManagerView extends UserMenu {
         leftSelectionPanel.setBackground(Color.gray);
         leftSelectionPanel.setBounds(100, 260, 260, 250);
 
-        Button laundryButton = new Button("Laundry Service");
-        laundryButton.setBounds(10, 0, width, height);
-        leftSelectionPanel.add(laundryButton);
-        Button overDueButton = new Button("Overdue Payment");
-        overDueButton.setBounds(10, 40, width, height);
-        leftSelectionPanel.add(overDueButton);
-        Button transportButton = new Button("Transport timetable");
-        transportButton.setBounds(10, 80, width, height);
-        leftSelectionPanel.add(transportButton);
+        Button showResidentButton = new Button("Show Resident List");
+        showResidentButton.setBounds(10, 0, width, height);
+        leftSelectionPanel.add(showResidentButton);
         Button roomInfoButton = new Button("Room detail");
-        roomInfoButton.setBounds(10, 120, width, height);
+        roomInfoButton.setBounds(10, 40, width, height);
         leftSelectionPanel.add(roomInfoButton);
         Button totalButton = new Button("Total");
         totalButton.setBounds(0, 200, 260, 40);
@@ -71,6 +65,12 @@ public class ManagerView extends UserMenu {
         root.add(statsPanel);
 
         setDetailList(detailList, test);
+
+        detailList.addActionListener(e -> {
+            new ResidentDetail(12);
+            int selectedItem = detailList.getSelectedIndex();
+            System.out.println("Selected item: " + selectedItem);
+        });
     }
 
     // TODO: create button listener
