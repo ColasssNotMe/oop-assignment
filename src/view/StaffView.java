@@ -7,10 +7,10 @@ import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
 import base.UserMenu;
+import users.User;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
-import users.Staff;
 
 public class StaffView extends UserMenu {
     String[] test = { "Te", "te" };
@@ -20,7 +20,7 @@ public class StaffView extends UserMenu {
     private String username;
     private String password;
 
-    public StaffView(Staff staff) {
+    public StaffView(User user) {
         super("Staff");
         JFrame root = getRoot();
         setTitle("Staff Menu");

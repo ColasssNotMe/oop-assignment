@@ -1,7 +1,7 @@
 package view;
 
 import base.UserMenu;
-import users.Manager;
+import users.User;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -18,7 +18,7 @@ public class ManagerView extends UserMenu {
     private int width = 240;
     private int height = 40;
 
-    public ManagerView(Manager manager) {
+    public ManagerView(User user) {
         super("manager");
         JFrame root = getRoot();
         setTitle("Manager Menu");
@@ -67,9 +67,9 @@ public class ManagerView extends UserMenu {
         setDetailList(detailList, test);
 
         detailList.addActionListener(e -> {
-            new ResidentDetail(12);
             int selectedItem = detailList.getSelectedIndex();
-            System.out.println("Selected item: " + selectedItem);
+            User selectedCustomerName = detailList.getItem(selectedItem);
+            new ResidentDetailDialog(12, selectedCustomerName);
         });
     }
 

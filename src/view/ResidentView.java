@@ -10,19 +10,18 @@ import java.awt.Panel;
 import javax.swing.JFrame;
 
 import base.UserMenu;
-import users.Resident;
+import users.User;
 
 public class ResidentView extends UserMenu {
     static String[] test = { "Apple", "Banana", "Cherry", "Date", "Elderberry" };
     static String[] test2 = { "Bpple", "Banana", "Cherry", "Date", "Elderberry" };
     static String[] test3 = { "Cpple", "Banana", "Cherry", "Date", "Elderberry" };
 
-    private int xPos = 10;
     private int width = 240;
     private int height = 40;
     // private Resident resident;
 
-    public ResidentView(Resident resident) {
+    public ResidentView(User user) {
         super("Resident");
         JFrame root = getRoot();
         setTitle("Resident Menu");

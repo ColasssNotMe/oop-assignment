@@ -17,9 +17,7 @@ import javax.swing.JFrame;
 
 import base.BaseFrame;
 import font.AllFont;
-import users.Manager;
-import users.Resident;
-import users.Staff;
+import users.User;
 import base.WindowListenerImp;
 
 // ...existing imports...
@@ -98,7 +96,7 @@ public class Login extends BaseFrame {
         addWindowListener(new WindowListenerImp());
         buttonListener(returnButton, loginButton, usernameTextField, passwordTextField, errorLabel, root);
     }
-    
+
     private void buttonListener(Button returnButton, Button loginButton, TextField usernameTextField,
             TextField passwordTextField, Label errorLabel, JFrame root) {
         returnButton.addActionListener(new ActionListener() {
@@ -121,18 +119,18 @@ public class Login extends BaseFrame {
                     switch ((String) userData[8]) {
                         case "resident":
                             // TODO: replace the data
-                            new ResidentView(new Resident(WIDTH, username, password, ALLBITS, password, username, ABORT,
+                            new ResidentView(new User(WIDTH, username, password, ALLBITS, password, username, ABORT,
                                     password));
                             root.dispose();
                             break;
                         case "manager":
-                            new ManagerView(new Manager(WIDTH, username, password, ALLBITS, password, username, ABORT,
+                            new ManagerView(new User(WIDTH, username, password, ALLBITS, password, username, ABORT,
                                     password));
                             root.dispose();
                             break;
                         case "staff":
                             new StaffView(
-                                    new Staff(WIDTH, username, password, ALLBITS, password, username, ABORT, password));
+                                    new User(WIDTH, username, password, ALLBITS, password, username, ABORT, password));
                             root.dispose();
                             break;
                     }
