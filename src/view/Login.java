@@ -10,8 +10,6 @@ import java.awt.Insets;
 import java.awt.Label;
 import java.awt.Panel;
 import javax.swing.JTextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
@@ -20,18 +18,10 @@ import javax.swing.border.LineBorder;
 
 import base.BaseFrame;
 import font.AllFont;
-import users.User;
 import base.WindowListenerImp;
+import color.CustomColor;
 
 public class Login extends BaseFrame {
-    // Refined Color Palette
-    private static final Color BACKGROUND_COLOR = new Color(247, 249, 252); // Soft Light Blue
-    private static final Color CONTAINER_BACKGROUND = new Color(255, 255, 255); // Pure White
-    private static final Color PRIMARY_COLOR = new Color(52, 152, 219); // Vibrant Blue
-    private static final Color SECONDARY_COLOR = new Color(41, 128, 185); // Darker Blue
-    private static final Color TEXT_COLOR = new Color(52, 73, 94); // Dark Slate
-    private static final Color ERROR_COLOR = new Color(231, 76, 60); // Soft Red
-    private static final Color BORDER_COLOR = new Color(189, 195, 199); // Light Gray
 
     Object[] userData = { 1, "name", "password", 010, 05, "male", 2, 011, "manager" };
 
@@ -40,10 +30,10 @@ public class Login extends BaseFrame {
         JFrame root = getRoot();
         root.setTitle("Login");
         root.setLayout(null);
-        root.getContentPane().setBackground(BACKGROUND_COLOR);
+        root.getContentPane().setBackground(CustomColor.BACKGROUND_COLOR);
 
         Panel container = new Panel(new GridBagLayout());
-        container.setBackground(CONTAINER_BACKGROUND);
+        container.setBackground(CustomColor.CONTAINER_BACKGROUND);
         container.setBounds(100, 100, 600, 400);
 
         // Add subtle shadow effect
@@ -56,17 +46,17 @@ public class Login extends BaseFrame {
         Label pageTitle = new Label("Login");
         pageTitle.setAlignment(Label.CENTER);
         pageTitle.setBounds(200, -100, 400, 300);
-        pageTitle.setForeground(TEXT_COLOR);
+        pageTitle.setForeground(CustomColor.TEXT_COLOR);
 
         Label icLabel = new Label("IC Number");
         Label passwordLabel = new Label("Password");
         Label errorLabel = new Label("Incorrect username or password");
-        errorLabel.setForeground(ERROR_COLOR);
+        errorLabel.setForeground(CustomColor.ERROR_COLOR);
         errorLabel.setVisible(false);
 
         Font titleFont = AllFont.titleFont;
-        Font labelFont = new Font("Segoe UI", Font.BOLD, 16);
-        Font textFont = new Font("Segoe UI", Font.PLAIN, 14);
+        Font labelFont = AllFont.LABEL_TEXT;
+        Font textFont = AllFont.INPUT_TEXT;
 
         pageTitle.setFont(titleFont);
         icLabel.setFont(labelFont);
@@ -121,8 +111,8 @@ public class Login extends BaseFrame {
         JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(250, 40));
         textField.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        textField.setForeground(TEXT_COLOR);
-        textField.setBorder(new LineBorder(BORDER_COLOR, 2, true));
+        textField.setForeground(CustomColor.TEXT_COLOR);
+        textField.setBorder(new LineBorder(CustomColor.BORDER_COLOR, 2, true));
         return textField;
     }
 
@@ -131,12 +121,12 @@ public class Login extends BaseFrame {
         button.setFont(new Font("Segoe UI", Font.BOLD, 16));
 
         if (isPrimary) {
-            button.setBackground(PRIMARY_COLOR);
+            button.setBackground(CustomColor.PRIMARY_COLOR);
             button.setForeground(Color.WHITE);
         } else {
-            button.setBackground(CONTAINER_BACKGROUND);
-            button.setForeground(TEXT_COLOR);
-            button.setBorder(new LineBorder(BORDER_COLOR, 1, true));
+            button.setBackground(CustomColor.CONTAINER_BACKGROUND);
+            button.setForeground(CustomColor.TEXT_COLOR);
+            button.setBorder(new LineBorder(CustomColor.BORDER_COLOR, 1, true));
         }
 
         return button;
@@ -151,7 +141,7 @@ public class Login extends BaseFrame {
             public void focusGained(FocusEvent e) {
                 if (textField.getText().equals(placeholder)) {
                     textField.setText("");
-                    textField.setForeground(TEXT_COLOR);
+                    textField.setForeground(CustomColor.TEXT_COLOR);
                 }
             }
 
