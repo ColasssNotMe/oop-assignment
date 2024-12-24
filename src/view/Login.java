@@ -30,7 +30,7 @@ public class Login extends BaseFrame {
         JFrame root = getRoot();
         root.setTitle("Login");
         root.setLayout(null);
-        root.getContentPane().setBackground(CustomColor.BACKGROUND_COLOR);
+        root.setBackground(CustomColor.BACKGROUND_COLOR);
 
         Panel container = new Panel(new GridBagLayout());
         container.setBackground(CustomColor.CONTAINER_BACKGROUND);
@@ -54,7 +54,7 @@ public class Login extends BaseFrame {
         errorLabel.setForeground(CustomColor.ERROR_COLOR);
         errorLabel.setVisible(false);
 
-        Font titleFont = AllFont.titleFont;
+        Font titleFont = AllFont.TITLE_TEXT;
         Font labelFont = AllFont.LABEL_TEXT;
         Font textFont = AllFont.INPUT_TEXT;
 
@@ -104,7 +104,12 @@ public class Login extends BaseFrame {
         root.add(pageTitle);
 
         addWindowListener(new WindowListenerImp());
-        buttonListener(returnButton, loginButton, icTextField, passwordTextField, errorLabel, root);
+        returnButton.addActionListener((e) -> {
+            root.dispose();
+            new MainMenu();
+        });
+        // buttonListener(returnButton, loginButton, icTextField, passwordTextField,
+        // errorLabel, root);
     }
 
     private JTextField createStyledTextField() {
@@ -155,9 +160,4 @@ public class Login extends BaseFrame {
         });
     }
 
-    private void buttonListener(JButton returnButton, JButton loginButton, JTextField icTextField,
-            JTextField passwordTextField, Label errorLabel, JFrame root) {
-
-        // ... existing button listener code ...
-    }
 }

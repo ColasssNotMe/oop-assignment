@@ -34,8 +34,8 @@ public class MainMenu extends BaseFrame {
         titlePanel.setBounds(300, 100, 200, 100);
 
         // init font and text
-        Font titleFont = AllFont.titleFont;
-        Font buttonFont = AllFont.mediumFont;
+        Font titleFont = AllFont.TITLE_TEXT;
+        Font buttonFont = AllFont.BUTTON_TEXT;
 
         Label titleText = new Label("Main Menu");
         titleText.setFont(titleFont);

@@ -2,7 +2,6 @@ package view;
 
 import java.awt.Button;
 import java.awt.Choice;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -19,6 +18,7 @@ import javax.swing.JFrame;
 import base.BaseFrame;
 import font.AllFont;
 import base.WindowListenerImp;
+import color.CustomColor;
 
 public class Register extends BaseFrame {
     public Register() {
@@ -31,7 +31,7 @@ public class Register extends BaseFrame {
 
         // First page
         Panel container = new Panel(new GridBagLayout());
-        container.setBackground(Color.gray);
+        container.setBackground(CustomColor.CONTAINER_BACKGROUND);
         container.setBounds(100, 100, 600, 400);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.CENTER;
@@ -49,8 +49,8 @@ public class Register extends BaseFrame {
         Label rePasswordLabel = new Label("Enter password again");
         rePasswordLabel.setAlignment(Label.LEFT);
 
-        Font titleFont = AllFont.titleFont;
-        Font font = new Font("Comic Sans MS", Font.PLAIN, 24);
+        Font titleFont = AllFont.TITLE_TEXT;
+        Font font = AllFont.LABEL_TEXT;
         icLabel.setFont(font);
         usernameLabel.setFont(font);
         passwordLabel.setFont(font);
@@ -59,16 +59,16 @@ public class Register extends BaseFrame {
 
         TextField icTextField = new TextField();
         icTextField.setPreferredSize(new Dimension(200, 30));
-        icTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
+        icTextField.setFont(AllFont.INPUT_TEXT);
         TextField usernameTextField = new TextField();
         usernameTextField.setPreferredSize(new Dimension(200, 30));
-        usernameTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
+        usernameTextField.setFont(AllFont.INPUT_TEXT);
         TextField passwordTextField = new TextField();
         passwordTextField.setPreferredSize(new Dimension(200, 30));
-        passwordTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
+        passwordTextField.setFont(AllFont.INPUT_TEXT);
         TextField rePasswordTextField = new TextField();
         rePasswordTextField.setPreferredSize(new Dimension(200, 30));
-        rePasswordTextField.setFont(new Font("Courier New", Font.PLAIN, 20));
+        rePasswordTextField.setFont(AllFont.INPUT_TEXT);
 
         Button returnButton = new Button("Back");
         returnButton.setBounds(60, 30, 100, 40);
@@ -102,7 +102,7 @@ public class Register extends BaseFrame {
         container.add(nextButton, gbc);
 
         Panel secondPagePanel = new Panel(new GridBagLayout());
-        secondPagePanel.setBackground(Color.gray);
+        secondPagePanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
         secondPagePanel.setBounds(100, 100, 600, 400);
         gbc.fill = GridBagConstraints.CENTER;
         gbc.insets = new Insets(1, 1, 1, 1);
@@ -122,7 +122,7 @@ public class Register extends BaseFrame {
 
         // TODO: remove redundancy in font
 
-        Font textFieldFont = new Font("Courier New", Font.PLAIN, 20);
+        Font textFieldFont = AllFont.INPUT_TEXT;
         TextField contactTextField = new TextField();
         contactTextField.setPreferredSize(new Dimension(200, 30));
         contactTextField.setFont(textFieldFont);
@@ -197,9 +197,12 @@ public class Register extends BaseFrame {
             }
         });
         prevButton.addActionListener(e -> {
+            container.setVisible(true);
+            secondPagePanel.setVisible(false);
         });
         nextButton.addActionListener(e -> {
             container.setVisible(false);
+            secondPagePanel.setVisible(true);
         });
     };
 
