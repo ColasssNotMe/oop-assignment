@@ -1,11 +1,12 @@
 package view;
 
 import base.UserMenu;
+import color.CustomColor;
+import font.AllFont;
 import users.User;
 
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
@@ -26,18 +27,18 @@ public class ManagerView extends UserMenu {
         Panel currentlyLoginAsPanel = new Panel(null);
         currentlyLoginAsPanel.setBounds(50, 100, 300, 100);
         Label currentlyLoginAs = new Label("Currently login as: Manager");
-        currentlyLoginAs.setFont(new Font("Arial", Font.BOLD, 14));
+        currentlyLoginAs.setFont(AllFont.LABEL_TEXT);
         currentlyLoginAs.setBounds(20, 20, 200, 25);
 
         currentlyLoginAsPanel.add(currentlyLoginAs);
 
         Panel statsPanel = new Panel();
-        statsPanel.setBackground(Color.gray);
+        statsPanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
         statsPanel.setBounds(50, 230, 700, 300);
 
         // left panel
         Panel leftSelectionPanel = new Panel(null);
-        leftSelectionPanel.setBackground(Color.gray);
+        leftSelectionPanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
         leftSelectionPanel.setBounds(100, 260, 260, 250);
 
         Button showResidentButton = new Button("Show Resident List");
@@ -52,7 +53,7 @@ public class ManagerView extends UserMenu {
 
         // right panel
         Panel rightInfoPanel = new Panel(null);
-        rightInfoPanel.setBackground(Color.white);
+        rightInfoPanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
         rightInfoPanel.setBounds(450, 260, 260, 250);
         List detailList = new List();
         detailList.setBounds(0, 0, 260, 250);
@@ -68,7 +69,7 @@ public class ManagerView extends UserMenu {
 
         detailList.addActionListener(e -> {
             int selectedItem = detailList.getSelectedIndex();
-           //TODO: search for the customer name 
+            // TODO: search for the customer name
             // User selectedCustomerName = detailList.getItem(selectedItem);
             new ResidentDetailDialog(12, new User(selectedItem, getName(), getName(), selectedItem, getTitle(),
                     getWarningString(), selectedItem, getName()));

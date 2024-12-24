@@ -19,7 +19,7 @@ public class UserMenu extends BaseFrame {
         JFrame root = getRoot();
         // Username display
         Label usernameLabel = new Label("Welcome, " + username);
-        usernameLabel.setFont(AllFont.titleFont);
+        usernameLabel.setFont(AllFont.LABEL_TEXT);
         usernameLabel.setBounds(50, 50, 300, 40);
 
         // Top right buttons

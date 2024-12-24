@@ -16,7 +16,7 @@ public class ResidentDetailDialog extends BaseFrame {
         JLabel detaiLabel = new JLabel("Details");
         detaiLabel.setBounds(150, -50, 200, 200);
         detaiLabel.setSize(200, 200);
-        detaiLabel.setFont(new Font("Comic Sans", Font.PLAIN, 30));
+        detaiLabel.setFont(new Font("Segoe UI", Font.PLAIN, 30));
         JLabel nameLabel = new JLabel("Name:" + user.name);
         nameLabel.setBounds(10, 90, 100, 100);
         root.add(nameLabel);

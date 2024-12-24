@@ -10,6 +10,8 @@ import java.awt.Panel;
 import javax.swing.JFrame;
 
 import base.UserMenu;
+import color.CustomColor;
+import font.AllFont;
 import users.User;
 
 public class ResidentView extends UserMenu {
@@ -27,32 +29,32 @@ public class ResidentView extends UserMenu {
         setTitle("Resident Menu");
         Panel roomPanel = new Panel();
         roomPanel.setLayout(null);
-        roomPanel.setBackground(new Color(240, 240, 240));
+        roomPanel.setBackground(CustomColor.BACKGROUND_COLOR);
         roomPanel.setBounds(50, 100, 300, 100);
 
         Label roomLabel = new Label("Room Number:");
         roomLabel.setBounds(20, 20, 100, 25);
-        roomLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        roomLabel.setFont(AllFont.LABEL_TEXT);
 
         Label roomNumberLabel = new Label("A-123");
         roomNumberLabel.setBounds(130, 20, 100, 25);
-        roomNumberLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        roomNumberLabel.setFont(AllFont.LABEL_TEXT);
 
         roomPanel.add(roomLabel);
         roomPanel.add(roomNumberLabel);
         // Payment
         Panel paymentPanel = new Panel();
         paymentPanel.setLayout(null);
-        paymentPanel.setBackground(new Color(240, 240, 240));
+        paymentPanel.setBackground(CustomColor.BACKGROUND_COLOR);
         paymentPanel.setBounds(450, 100, 300, 100);
 
         Label paymentLabel = new Label("Payment Due:");
         paymentLabel.setBounds(20, 20, 100, 25);
-        paymentLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        paymentLabel.setFont(AllFont.LABEL_TEXT);
 
         Label amountLabel = new Label();
         amountLabel.setBounds(130, 20, 100, 25);
-        amountLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        amountLabel.setFont(AllFont.LABEL_TEXT);
 
         Button paymentButton = new Button("Make Payment");
         paymentButton.setBounds(20, 60, 260, 30);
@@ -62,13 +64,13 @@ public class ResidentView extends UserMenu {
         paymentPanel.add(paymentButton);
 
         Panel statsPanel = new Panel();
-        statsPanel.setBackground(Color.gray);
+        statsPanel.setBackground(CustomColor.BACKGROUND_COLOR);
         statsPanel.setBounds(50, 230, 700, 300);
 
         // inside panel
         // left panel
         Panel leftSelectionPanel = new Panel(null);
-        leftSelectionPanel.setBackground(Color.gray);
+        leftSelectionPanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
         leftSelectionPanel.setBounds(100, 260, 260, 250);
 
         Button overDueButton = new Button("Overdue Payment");
@@ -83,7 +85,7 @@ public class ResidentView extends UserMenu {
 
         // right panel
         Panel rightInfoPanel = new Panel(null);
-        rightInfoPanel.setBackground(Color.white);
+        rightInfoPanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
         rightInfoPanel.setBounds(450, 260, 260, 250);
         List detailList = new List();
         detailList.setBounds(0, 0, 260, 250);

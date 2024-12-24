@@ -6,7 +6,11 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
+import java.beans.Customizer;
+
 import base.UserMenu;
+import color.CustomColor;
+import font.AllFont;
 import users.User;
 
 import javax.swing.JFrame;
@@ -17,8 +21,6 @@ public class StaffView extends UserMenu {
 
     private int width = 240;
     private int height = 40;
-    private String username;
-    private String password;
 
     public StaffView(User user) {
         super("Staff");
@@ -27,17 +29,17 @@ public class StaffView extends UserMenu {
         Panel currentlyLoginAsPanel = new Panel(null);
         currentlyLoginAsPanel.setBounds(50, 100, 300, 100);
         Label currentlyLoginAs = new Label("Currently login as: Staff");
-        currentlyLoginAs.setFont(new Font("Arial", Font.BOLD, 14));
+        currentlyLoginAs.setFont(AllFont.LABEL_TEXT);
         currentlyLoginAs.setBounds(20, 20, 200, 25);
 
         currentlyLoginAsPanel.add(currentlyLoginAs);
         Panel statsPanel = new Panel();
-        statsPanel.setBackground(Color.gray);
+        statsPanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
         statsPanel.setBounds(50, 230, 700, 300);
 
         // left panel
         Panel leftSelectionPanel = new Panel(null);
-        leftSelectionPanel.setBackground(Color.gray);
+        leftSelectionPanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
         leftSelectionPanel.setBounds(100, 260, 260, 250);
 
         Button registerUserButton = new Button("Register User");
@@ -55,7 +57,7 @@ public class StaffView extends UserMenu {
 
         // right panel
         Panel rightInfoPanel = new Panel(null);
-        rightInfoPanel.setBackground(Color.white);
+        rightInfoPanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
         rightInfoPanel.setBounds(450, 260, 260, 250);
         List detailList = new List();
         detailList.setBounds(0, 0, 260, 250);

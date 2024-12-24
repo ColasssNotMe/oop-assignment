@@ -16,7 +16,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 public class MainMenu extends BaseFrame {
-    // Color Palette
 
     public MainMenu() {
         super();

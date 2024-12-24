@@ -107,8 +107,8 @@ public class Register extends BaseFrame {
         gbc.fill = GridBagConstraints.CENTER;
         gbc.insets = new Insets(1, 1, 1, 1);
 
-        Label pageTitle2 = new Label("Register");
-        pageTitle2.setBounds(200, -10, 400, 300);
+        // Label pageTitle2 = new Label("Register");
+        // pageTitle2.setBounds(200, -10, 400, 300);
         Label nationalityLabel = new Label("Are you Malaysian?");
         Label contactLabel = new Label("Enter your contact number");
         Label genderLabel = new Label("Gender");
@@ -118,7 +118,7 @@ public class Register extends BaseFrame {
         nationalityLabel.setFont(font);
         genderLabel.setFont(font);
         urgentContact.setFont(font);
-        pageTitle2.setFont(titleFont);
+        // pageTitle2.setFont(titleFont);
 
         // TODO: remove redundancy in font
 
@@ -127,6 +127,8 @@ public class Register extends BaseFrame {
         contactTextField.setPreferredSize(new Dimension(200, 30));
         contactTextField.setFont(textFieldFont);
         Choice genderChoice = new Choice();
+        genderChoice.add("Male");
+        genderChoice.add("Female");
         genderChoice.setPreferredSize(new Dimension(200, 30));
         genderChoice.setFont(textFieldFont);
         TextField urgenTextField = new TextField();
