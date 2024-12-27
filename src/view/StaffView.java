@@ -6,8 +6,6 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
-import java.beans.Customizer;
-
 import base.UserMenu;
 import color.CustomColor;
 import font.AllFont;

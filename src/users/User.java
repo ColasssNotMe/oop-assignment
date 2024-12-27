@@ -7,11 +7,15 @@ public class User {
     public String ic;
     public String gender;
     public int contact;
-    public String role;
     public int urgentContact;
+    public Role role;
+
+    public enum Role {
+        resident, staff, manager
+    }
 
     public User(int id, String name, String password, int contact, String ic, String gender, int urgentContact,
-            String role) {
+            Role role) {
         this.id = id;
         this.name = name;
         this.password = password;

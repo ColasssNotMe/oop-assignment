@@ -10,11 +10,8 @@ import java.awt.Insets;
 import java.awt.Label;
 import java.awt.Panel;
 import javax.swing.JTextField;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
 import javax.swing.JFrame;
-import javax.swing.border.LineBorder;
 
 import base.BaseFrame;
 import font.AllFont;
@@ -56,7 +53,6 @@ public class Login extends BaseFrame {
 
         Font titleFont = AllFont.TITLE_TEXT;
         Font labelFont = AllFont.LABEL_TEXT;
-        Font textFont = AllFont.INPUT_TEXT;
 
         pageTitle.setFont(titleFont);
         icLabel.setFont(labelFont);
@@ -102,7 +98,6 @@ public class Login extends BaseFrame {
         root.add(container);
         root.add(returnButton);
         root.add(pageTitle);
-
         addWindowListener(new WindowListenerImp());
         returnButton.addActionListener((e) -> {
             root.dispose();
@@ -110,54 +105,6 @@ public class Login extends BaseFrame {
         });
         // buttonListener(returnButton, loginButton, icTextField, passwordTextField,
         // errorLabel, root);
-    }
-
-    private JTextField createStyledTextField() {
-        JTextField textField = new JTextField();
-        textField.setPreferredSize(new Dimension(250, 40));
-        textField.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        textField.setForeground(CustomColor.TEXT_COLOR);
-        textField.setBorder(new LineBorder(CustomColor.BORDER_COLOR, 2, true));
-        return textField;
-    }
-
-    private JButton createStyledButton(String text, boolean isPrimary) {
-        JButton button = new JButton(text);
-        button.setFont(new Font("Segoe UI", Font.BOLD, 16));
-
-        if (isPrimary) {
-            button.setBackground(CustomColor.PRIMARY_COLOR);
-            button.setForeground(Color.WHITE);
-        } else {
-            button.setBackground(CustomColor.CONTAINER_BACKGROUND);
-            button.setForeground(CustomColor.TEXT_COLOR);
-            button.setBorder(new LineBorder(CustomColor.BORDER_COLOR, 1, true));
-        }
-
-        return button;
-    }
-
-    private void addPlaceholderEffect(JTextField textField, String placeholder) {
-        textField.setText(placeholder);
-        textField.setForeground(Color.GRAY);
-
-        textField.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                if (textField.getText().equals(placeholder)) {
-                    textField.setText("");
-                    textField.setForeground(CustomColor.TEXT_COLOR);
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (textField.getText().isEmpty()) {
-                    textField.setText(placeholder);
-                    textField.setForeground(Color.GRAY);
-                }
-            }
-        });
     }
 
 }

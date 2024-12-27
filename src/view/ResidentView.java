@@ -33,7 +33,7 @@ public class ResidentView extends UserMenu {
         roomPanel.setBounds(50, 100, 300, 100);
 
         Label roomLabel = new Label("Room Number:");
-        roomLabel.setBounds(20, 20, 100, 25);
+        roomLabel.setBounds(21, 20, 100, 25);
         roomLabel.setFont(AllFont.LABEL_TEXT);
 
         Label roomNumberLabel = new Label("A-123");

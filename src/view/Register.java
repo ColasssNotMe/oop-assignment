@@ -13,6 +13,7 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import base.BaseFrame;
@@ -70,9 +71,9 @@ public class Register extends BaseFrame {
         rePasswordTextField.setPreferredSize(new Dimension(200, 30));
         rePasswordTextField.setFont(AllFont.INPUT_TEXT);
 
-        Button returnButton = new Button("Back");
+        JButton returnButton = createStyledButton("Back",false);
         returnButton.setBounds(60, 30, 100, 40);
-        Button nextButton = new Button("Next Page");
+        JButton nextButton = createStyledButton("Next",true);
         nextButton.setPreferredSize(new Dimension(100, 40));
 
         // add components
@@ -140,9 +141,9 @@ public class Register extends BaseFrame {
 
         // Button returnButton = new Button("Back");
         // returnButton.setBounds(60, 120, 100, 40);
-        Button prevButton = new Button("Previous");
+        JButton prevButton = createStyledButton("Previous",false);
         prevButton.setPreferredSize(new Dimension(100, 40));
-        Button registerButton = new Button("Register");
+        JButton registerButton = createStyledButton("Register", true);
         registerButton.setPreferredSize(new Dimension(100, 40));
 
         // add components
