@@ -111,10 +111,6 @@ public class View extends UserMenu {
             rightInfoPanel.add(detailList);
 
             root.add(roomPanel);
-            root.add(leftSelectionPanel);
-            root.add(rightInfoPanel);
-            root.add(statsPanel);
-
             overDueButtonListener(overDueButton, detailList, test2);
             roomInfoButtonListener(roomInfoButton, detailList, test2);
             totalButtonListener(totalButton, detailList, test);
@@ -141,17 +137,35 @@ public class View extends UserMenu {
             });
             updateUserButton.addActionListener((e) -> {
             });
+        } else if (user.role.equals(Role.manager)) {
+            JButton showResidentButton = new JButton("Show Resident List");
+            showResidentButton.setBounds(10, 0, width, height);
+            leftSelectionPanel.add(showResidentButton);
+            JButton roomInfoButton = new JButton("Room detail");
+            roomInfoButton.setBounds(10, 40, width, height);
+            leftSelectionPanel.add(roomInfoButton);
+            JButton totalButton = new JButton("Total");
+            totalButton.setBounds(0, 200, 260, 40);
+            leftSelectionPanel.add(totalButton);
         }
         root.add(leftSelectionPanel);
         root.add(rightInfoPanel);
         root.add(statsPanel);
         setDetailList(detailList, test);
 
-    };
+        detailList.addActionListener(e -> {
+           int selectedItem = detailList.getSelectedIndex();
+           // TODO: search for the customer name
+           // User selectedCustomerName = detailList.getItem(selectedItem);
+           new ResidentDetailDialog(12,
+                   new User(1, "name", "password", "01112840294", "ic", "gender", "12550298", Role.resident));
+       });
 
-    public void laundryButtonListener(JButton laundryButton, List detailList, String[] dataList) {
-        laundryButton.addActionListener((e) -> setDetailList(detailList, dataList));
-    }
+   };
+
+   public void laundryButtonListener(JButton laundryButton, List detailList, String[] dataList) {
+       laundryButton.addActionListener((e) -> setDetailList(detailList, dataList));
+   }
 
     public void overDueButtonListener(JButton overDueButton, List detailList, String[] dataList) {
         overDueButton.addActionListener((e) -> setDetailList(detailList, dataList));
@@ -176,4 +190,5 @@ public class View extends UserMenu {
         }
         String newPassword = JOptionPane.showInputDialog("Enter new password");
     }
+
 }
