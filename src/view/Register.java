@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.Button;
+import java.awt.JButton;
 import java.awt.Choice;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -71,9 +71,9 @@ public class Register extends BaseFrame {
         rePasswordTextField.setPreferredSize(new Dimension(200, 30));
         rePasswordTextField.setFont(AllFont.INPUT_TEXT);
 
-        JButton returnButton = createStyledButton("Back",false);
+        JButton returnButton = createStyledButton("Back", false);
         returnButton.setBounds(60, 30, 100, 40);
-        JButton nextButton = createStyledButton("Next",true);
+        JButton nextButton = createStyledButton("Next", true);
         nextButton.setPreferredSize(new Dimension(100, 40));
 
         // add components
@@ -139,9 +139,9 @@ public class Register extends BaseFrame {
         nationalityTextField.setPreferredSize(new Dimension(200, 30));
         nationalityTextField.setFont(textFieldFont);
 
-        // Button returnButton = new Button("Back");
+        // JButton returnButton = new JButton("Back");
         // returnButton.setBounds(60, 120, 100, 40);
-        JButton prevButton = createStyledButton("Previous",false);
+        JButton prevButton = createStyledButton("Previous", false);
         prevButton.setPreferredSize(new Dimension(100, 40));
         JButton registerButton = createStyledButton("Register", true);
         registerButton.setPreferredSize(new Dimension(100, 40));

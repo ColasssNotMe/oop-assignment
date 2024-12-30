@@ -43,19 +43,19 @@ public class BaseFrame extends Frame {
     }
 
     public JButton createStyledButton(String text, boolean isPrimary) {
-        JButton button = new JButton(text);
-        button.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        JButton JButton = new JButton(text);
+        JButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
 
         if (isPrimary) {
-            button.setBackground(CustomColor.PRIMARY_COLOR);
-            button.setForeground(Color.WHITE);
+            JButton.setBackground(CustomColor.PRIMARY_COLOR);
+            JButton.setForeground(Color.WHITE);
         } else {
-            button.setBackground(CustomColor.CONTAINER_BACKGROUND);
-            button.setForeground(CustomColor.TEXT_COLOR);
-            button.setBorder(new LineBorder(CustomColor.BORDER_COLOR, 1, true));
+            JButton.setBackground(CustomColor.CONTAINER_BACKGROUND);
+            JButton.setForeground(CustomColor.TEXT_COLOR);
+            JButton.setBorder(new LineBorder(CustomColor.BORDER_COLOR, 1, true));
         }
 
-        return button;
+        return JButton;
     }
 
     public void addPlaceholderEffect(JTextField textField, String placeholder) {

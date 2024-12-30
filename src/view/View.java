@@ -25,7 +25,7 @@ public class View extends UserMenu {
     // private Resident resident;
 
     public View(User user) {
-        super(user.name);
+        super(user);
         JFrame root = getRoot();
         switch (user.role) {
             case resident:
@@ -95,13 +95,13 @@ public class View extends UserMenu {
 
         if (user.role.equals(Role.resident)) {
             // left panel
-            JButton overDueButton = new JButton("Overdue Payment");
+            JButton overDueButton = createStyledButton("Overdue Payment", false);
             overDueButton.setBounds(10, 0, width, height);
             leftSelectionPanel.add(overDueButton);
-            JButton roomInfoButton = new JButton("Room detail");
+            JButton roomInfoButton = createStyledButton("Room detail", false);
             roomInfoButton.setBounds(10, 40, width, height);
             leftSelectionPanel.add(roomInfoButton);
-            JButton totalButton = new JButton("Total");
+            JButton totalButton = createStyledButton("Total", true);
             totalButton.setBounds(0, 200, 260, 40);
             leftSelectionPanel.add(totalButton);
 
@@ -115,16 +115,16 @@ public class View extends UserMenu {
             roomInfoButtonListener(roomInfoButton, detailList, test2);
             totalButtonListener(totalButton, detailList, test);
         } else if (user.role.equals(Role.staff)) {
-            JButton registerUserButton = new JButton("Register User");
+            JButton registerUserButton = createStyledButton("Register User", false);
             registerUserButton.setBounds(10, 0, width, height);
             leftSelectionPanel.add(registerUserButton);
-            JButton updateUserButton = new JButton("Update User");
+            JButton updateUserButton = createStyledButton("Update User", false);
             updateUserButton.setBounds(10, 40, width, height);
             leftSelectionPanel.add(updateUserButton);
-            JButton makePaymentButton = new JButton("Make Payment");
+            JButton makePaymentButton = createStyledButton("Make Payment", false);
             makePaymentButton.setBounds(10, 80, width, height);
             leftSelectionPanel.add(makePaymentButton);
-            JButton generateReceiptButton = new JButton("Generate Receipt");
+            JButton generateReceiptButton = createStyledButton("Generate Receipt", false);
             generateReceiptButton.setBounds(10, 120, width, height);
             leftSelectionPanel.add(generateReceiptButton);
 
@@ -138,13 +138,13 @@ public class View extends UserMenu {
             updateUserButton.addActionListener((e) -> {
             });
         } else if (user.role.equals(Role.manager)) {
-            JButton showResidentButton = new JButton("Show Resident List");
+            JButton showResidentButton = createStyledButton("Show Resident List", false);
             showResidentButton.setBounds(10, 0, width, height);
             leftSelectionPanel.add(showResidentButton);
-            JButton roomInfoButton = new JButton("Room detail");
+            JButton roomInfoButton = createStyledButton("Room detail", false);
             roomInfoButton.setBounds(10, 40, width, height);
             leftSelectionPanel.add(roomInfoButton);
-            JButton totalButton = new JButton("Total");
+            JButton totalButton = createStyledButton("Total", true);
             totalButton.setBounds(0, 200, 260, 40);
             leftSelectionPanel.add(totalButton);
         }
@@ -154,18 +154,18 @@ public class View extends UserMenu {
         setDetailList(detailList, test);
 
         detailList.addActionListener(e -> {
-           int selectedItem = detailList.getSelectedIndex();
-           // TODO: search for the customer name
-           // User selectedCustomerName = detailList.getItem(selectedItem);
-           new ResidentDetailDialog(12,
-                   new User(1, "name", "password", "01112840294", "ic", "gender", "12550298", Role.resident));
-       });
+            int selectedItem = detailList.getSelectedIndex();
+            // TODO: search for the customer name
+            // User selectedCustomerName = detailList.getItem(selectedItem);
+            new ResidentDetailDialog(12,
+                    new User(1, "name", "password", "01112840294", "ic", "gender", "12550298", Role.resident));
+        });
 
-   };
+    };
 
-   public void laundryButtonListener(JButton laundryButton, List detailList, String[] dataList) {
-       laundryButton.addActionListener((e) -> setDetailList(detailList, dataList));
-   }
+    public void laundryButtonListener(JButton laundryButton, List detailList, String[] dataList) {
+        laundryButton.addActionListener((e) -> setDetailList(detailList, dataList));
+    }
 
     public void overDueButtonListener(JButton overDueButton, List detailList, String[] dataList) {
         overDueButton.addActionListener((e) -> setDetailList(detailList, dataList));

@@ -10,7 +10,7 @@ import base.WindowListenerImp;
 import color.CustomColor;
 import font.AllFont;
 
-import java.awt.Button;
+import java.awt.JButton;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -40,9 +40,9 @@ public class MainMenu extends BaseFrame {
         titleText.setFont(titleFont);
         titleText.setForeground(CustomColor.TITLE_COLOR);
 
-        // button init
-        Button loginButton = new Button("Login");
-        Button registerButton = new Button("Register");
+        // JButton init
+        JButton loginButton = new JButton("Login");
+        JButton registerButton = new JButton("Register");
 
         // Styling buttons
         styleButton(loginButton, buttonFont);
@@ -63,24 +63,24 @@ public class MainMenu extends BaseFrame {
         root.setVisible(true);
     }
 
-    private void styleButton(Button button, Font font) {
-        button.setFont(font);
-        button.setBackground(CustomColor.BUTTON_BG_COLOR);
-        button.setForeground(CustomColor.BUTTON_TEXT_COLOR);
+    private void styleButton(JButton JButton, Font font) {
+        JButton.setFont(font);
+        JButton.setBackground(CustomColor.BUTTON_BG_COLOR);
+        JButton.setForeground(CustomColor.BUTTON_TEXT_COLOR);
 
         // Optional: Add hover effect (note: pure AWT has limited styling)
-        button.addMouseListener(new java.awt.event.MouseAdapter() {
+        JButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(CustomColor.BUTTON_HOVER_COLOR);
+                JButton.setBackground(CustomColor.BUTTON_HOVER_COLOR);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(CustomColor.BUTTON_BG_COLOR);
+                JButton.setBackground(CustomColor.BUTTON_BG_COLOR);
             }
         });
     }
 
-    private void setupButtonListeners(Button loginButton, Button registerButton, JFrame root) {
+    private void setupButtonListeners(JButton loginButton, JButton registerButton, JFrame root) {
         loginButton.addActionListener(e -> {
             root.dispose();
             new Login();

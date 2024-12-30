@@ -12,7 +12,7 @@ public class App {
         String password = "password123";
         String phoneNumber = "1234567890";
         String gender = "Male";
-        Role role = Role.staff;
+        Role role = Role.manager;
 
         User testUser = new User(id, firstName, password, phoneNumber, ic, gender, urgentContact, role);
         // new ManagerView(null);
