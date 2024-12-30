@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.JButton;
 import java.awt.Choice;
 import java.awt.Dimension;
 import java.awt.Font;
