@@ -1,5 +1,7 @@
+
 import users.User;
 import users.User.Role;
+import view.MainMenu;
 import view.View;
 
 public class App {
@@ -16,6 +18,7 @@ public class App {
 
         User testUser = new User(id, firstName, password, phoneNumber, ic, gender, urgentContact, role);
         // new ManagerView(null);
-        new View(testUser);
+        // new View(testUser);
+        new MainMenu();
     }
 }

@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import base.BaseFrame;
 import font.AllFont;
@@ -193,9 +194,17 @@ public class Register extends BaseFrame {
         });
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField, contactTextField,
-                        urgenTextField, genderChoice, nationalityTextField, true)) {
+                String errorValue = validation(icTextField, usernameTextField, passwordTextField, rePasswordTextField,
+                        contactTextField,
+                        urgenTextField, genderChoice, nationalityTextField, false);
+                if (errorValue.equals("approved")) {
+                    JOptionPane.showMessageDialog(root, "Account created successfully. ");
+                    root.dispose();
+                    new MainMenu();
+                } else {
+                    JOptionPane.showMessageDialog(root, errorValue);
                 }
+                ;
             }
         });
         prevButton.addActionListener(e -> {
@@ -209,28 +218,28 @@ public class Register extends BaseFrame {
     };
 
     // FIXME: remove testing
-    private boolean validation(TextField ic, TextField username, TextField password, TextField rePassword,
+    private String validation(TextField ic, TextField username, TextField password, TextField rePassword,
             TextField contactNumber, TextField emergencyContact, Choice gender, TextField boolMalaysian,
             Boolean testing) {
         if (testing == true) {
-            return true;
+            return ("approved");
         }
-        if (ic.getText().length() != 12) {
-            return false;
+        if (ic.getText().length() < 9) {
+            return ("Invalid IC/Passport");
         }
-        if (password.getText() != rePassword.getText()) {
-            return false;
+        if (password.getText().equals(rePassword.getText())) {
+            return ("The password entered are not the same");
         }
-        if (contactNumber.getText() == "") {
-            return false;
+        if (contactNumber.getText().equals("")) {
+            return ("Contact number can't be empty");
         }
-        if (emergencyContact.getText() == "") {
-            return false;
+        if (emergencyContact.getText().equals("")) {
+            return ("Emergency contact number can't be empty");
         }
         // TODO: check if the username is available
         // if (username == data) {
         // }
-        return testing;
+        return ("approved");
     }
 
 }
