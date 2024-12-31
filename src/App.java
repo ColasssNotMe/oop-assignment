@@ -18,6 +18,6 @@ public class App {
 
         User testUser = new User(id, firstName, password, phoneNumber, ic, gender, urgentContact, role);
         // new View(testUser);
-        new View(testUser);
+        new MainMenu();
     }
 }
