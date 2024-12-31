@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
@@ -16,7 +17,7 @@ import users.User.Role;
 
 public class View extends UserMenu {
 
-    static String[] test = { "Apple", "Banana", "Cherry", "Date", "Elderberry" };
+    static String[] test = { "Apple", "Banana", "Cherry", "Date", "Elderberry", "T", "tsnth", "snth" };
     static String[] test2 = { "Bpple", "Banana", "Cherry", "Date", "Elderberry" };
     static String[] test3 = { "Cpple", "Banana", "Cherry", "Date", "Elderberry" };
 
@@ -88,10 +89,11 @@ public class View extends UserMenu {
 
         Panel rightInfoPanel = new Panel(null);
         rightInfoPanel.setBackground(CustomColor.CONTAINER_BACKGROUND);
-        rightInfoPanel.setBounds(450, 260, 260, 250);
+        rightInfoPanel.setBounds(450, 250, 260, 250);
 
         List detailList = new List();
-        detailList.setBounds(0, 0, 260, 250);
+        detailList.setBackground(Color.RED);
+        detailList.setBounds(0, 100, 260, 250);
 
         if (user.role.equals(Role.resident)) {
             // left panel

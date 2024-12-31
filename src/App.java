@@ -17,8 +17,7 @@ public class App {
         Role role = Role.manager;
 
         User testUser = new User(id, firstName, password, phoneNumber, ic, gender, urgentContact, role);
-        // new ManagerView(null);
         // new View(testUser);
-        new MainMenu();
+        new View(testUser);
     }
 }
