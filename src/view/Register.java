@@ -41,8 +41,6 @@ public class Register extends BaseFrame {
         Label pageTitle = new Label("Register");
         pageTitle.setAlignment(Label.CENTER);
         pageTitle.setBounds(200, -100, 400, 300);
-        Label usernameLabel = new Label("Create a new username");
-        usernameLabel.setAlignment(Label.LEFT);
         Label icLabel = new Label("Enter IC/Passport No.");
         icLabel.setAlignment(Label.LEFT);
         Label passwordLabel = new Label("Password");
@@ -53,7 +51,6 @@ public class Register extends BaseFrame {
         Font titleFont = AllFont.TITLE_TEXT;
         Font font = AllFont.LABEL_TEXT;
         icLabel.setFont(font);
-        usernameLabel.setFont(font);
         passwordLabel.setFont(font);
         rePasswordLabel.setFont(font);
         pageTitle.setFont(titleFont);
@@ -85,18 +82,16 @@ public class Register extends BaseFrame {
         container.add(icTextField, gbc);
 
         gbc.gridy = 2;
-        container.add(usernameLabel, gbc);
+        container.add(passwordLabel, gbc);
 
         gbc.gridy = 3;
-        container.add(usernameTextField, gbc);
-        gbc.gridy = 4;
-        container.add(passwordLabel, gbc);
-        gbc.gridy = 5;
         container.add(passwordTextField, gbc);
-        gbc.gridy = 6;
+        gbc.gridy = 4;
         container.add(rePasswordLabel, gbc);
-        gbc.gridy = 7;
+        gbc.gridy = 5;
         container.add(rePasswordTextField, gbc);
+        gbc.gridy = 6;
+        gbc.gridy = 7;
 
         gbc.gridy = 8;
         gbc.insets = new Insets(20, 0, 20, 0);
@@ -218,28 +213,26 @@ public class Register extends BaseFrame {
     };
 
     // FIXME: remove testing
+    // FIXME: remove this and use yew jun function getter and setter
     private String validation(TextField ic, TextField username, TextField password, TextField rePassword,
             TextField contactNumber, TextField emergencyContact, Choice gender, TextField boolMalaysian,
             Boolean testing) {
         if (testing == true) {
             return ("approved");
-        }
-        if (ic.getText().length() < 9) {
+        } else if (ic.getText().length() < 9) {
             return ("Invalid IC/Passport");
-        }
-        if (password.getText().equals(rePassword.getText())) {
+        } else if (password.getText().equals(rePassword.getText())) {
             return ("The password entered are not the same");
-        }
-        if (contactNumber.getText().equals("")) {
+        } else if (contactNumber.getText().equals("")) {
             return ("Contact number can't be empty");
-        }
-        if (emergencyContact.getText().equals("")) {
+        } else if (emergencyContact.getText().equals("")) {
             return ("Emergency contact number can't be empty");
+        } else {
+            return ("approved");
         }
         // TODO: check if the username is available
         // if (username == data) {
         // }
-        return ("approved");
     }
 
 }
