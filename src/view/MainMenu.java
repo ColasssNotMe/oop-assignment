@@ -2,8 +2,6 @@ package view;
 
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.event.ActionListener;
-import java.awt.Color;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
